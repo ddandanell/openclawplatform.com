@@ -1,96 +1,126 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Bot, Shield, Zap, Play } from "lucide-react";
+"use client";
+import { useRef, useEffect } from "react";
 
 export default function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg pt-16">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#FF6B2B]/5 blur-3xl pointer-events-none" />
-      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#FF6B2B]/3 blur-3xl pointer-events-none" />
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-        {/* Feature badges with Lucide icons */}
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = 0;
+    // Restore normal playback speed and ensure looping
+    video.playbackRate = 1;
+    video.loop = true;
+    video.muted = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.play().catch(() => {});
+  }, []);
+
+  return (
+
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Background video — full width so it shows behind all hero content */}
+      {/* Background video — full width so it shows behind all hero content */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          playsInline
+          className="w-full h-full object-cover hero-video-scale"
+          aria-hidden="true"
+          src="/herovideo.mp4"
+        />
+        {/* Dark layer above video only (~75% opacity) so video reads like background — sits below text */}
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: 'rgba(0,0,0,0.75)' }} />
+      </div>
+
+      {/* Overlays removed so video is fully visible behind text */}
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center z-10">
+        {/* Feature badges */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium">
-            <Bot className="w-4 h-4" />
-            AI-Powered Automation
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B] bg-[#FF6B2B] text-white text-sm font-medium">
+            🤖 AI Employee Solutions
           </div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium">
-            <Shield className="w-4 h-4" />
-            Enterprise Security
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B] bg-[#FF6B2B] text-white text-sm font-medium">
+            🌏 Based in Bali, Indonesia
           </div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium">
-            <Zap className="w-4 h-4" />
-            Real-Time Execution
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B] bg-[#FF6B2B] text-white text-sm font-medium">
+            ⚡ 24/7 Autonomous Operations
           </div>
         </div>
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 max-w-5xl mx-auto">
-          Enterprise-Grade{" "}
-          <span className="gradient-text">OpenClaw Deployment.</span>
-          <br />
-          Secured. Scaled. Autonomous.
+          We Connect Directly. We <span className="gradient-text">Understand Your Challenges.</span>
         </h1>
 
-        {/* Sub-headline */}
-        <p className="text-xl sm:text-2xl text-[#6B6B7A] max-w-3xl mx-auto mb-10 leading-relaxed">
-          We bridge the gap between experimental AI agents and{" "}
-          <strong className="text-[#E8E8F0]">production-ready business automation.</strong>{" "}
-          No more terminal hacks, no more security nightmares—just results that
-          scale with your business.
+        {/* Sub-headline — updated with new company description */}
+        <p className="text-xl sm:text-2xl text-[#9B9BAA] max-w-3xl mx-auto mb-4 leading-relaxed">
+          The AI landscape moves faster than most companies can adapt. That's exactly why we exist — to build <strong className="text-[#E8E8F0]">secure, intelligent AI solutions</strong> wrapped in strict guardrails and bulletproof security protocols that never step outside your boundaries.
         </p>
+        <p className="text-base sm:text-lg text-[#6B6B7A] max-w-2xl mx-auto mb-6 leading-relaxed">
+          One permanent agent stays embedded in your operations — continuously learning, refining responses, and evolving alongside your business over time.
+        </p>
+
+        {/* Service Options - Two Paths */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <div className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#FF6B2B] bg-[#FF6B2B] text-white text-sm font-medium">
+            ⚡ Hands-Off Implementation
+          </div>
+          <span className="text-[#6B6B7A]">or</span>
+          <div className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#FF6B2B] bg-[#FF6B2B] text-white text-sm font-medium">
+            📋 Deep Partnership (Company Blueprinting)
+          </div>
+        </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          {/* Primary CTA - WhatsApp */}
           <a
-            href="#deploy"
-            className="group px-8 py-4 bg-[#FF6B2B] hover:bg-[#E5521A] text-white font-bold text-lg rounded-xl transition-all hover:scale-105 glow-orange flex items-center gap-2"
+            href="https://wa.me/628113702343?text=Hi%20Claw%2C%20I%27m%20interested%20in%20AI%20employee%20solutions%20for%20my%20business"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group px-8 py-4 bg-[#FF6B2B] hover:bg-[#E5521A] text-white font-bold text-lg rounded-xl transition-all hover:scale-105 glow-orange flex items-center gap-3 animate-cta-pulse"
           >
-            Deploy My Agent
-            <svg
-              className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white" className="shrink-0">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
             </svg>
+            Chat With Us on WhatsApp
           </a>
+
+          {/* Secondary CTA */}
           <a
-            href="#architecture"
-            className="px-8 py-4 border border-[#2A2A30] hover:border-[#FF6B2B]/50 text-[#E8E8F0] font-semibold text-lg rounded-xl transition-all hover:bg-[#16161A] flex items-center gap-2"
+            href="https://wa.me/628113702343?text=I%27d%20like%20a%20free%20AI%20consultation%20please"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 border border-[#2A2A30] hover:border-[#FF6B2B] text-white font-semibold text-lg rounded-xl transition-all bg-[#16161A] flex items-center gap-2"
           >
-            <svg className="w-5 h-5 text-[#FF6B2B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            Get a Security Audit
+            Get a Free AI Consultation
           </a>
-          <button
-            className="px-8 py-4 border border-[#2A2A30] hover:border-[#FF6B2B]/50 text-[#E8E8F0] font-semibold text-lg rounded-xl transition-all hover:bg-[#16161A] flex items-center gap-2 group"
+
+          {/* Tertiary CTA */}
+          <a
+            href="#services"
+            className="px-8 py-4 border border-[#2A2A30] hover:border-[#FF6B2B] text-white font-semibold text-lg rounded-xl transition-all bg-[#16161A] flex items-center gap-2"
           >
-            <Play className="w-5 h-5 text-[#FF6B2B] group-hover:scale-110 transition-transform" />
-            Watch Demo
-          </button>
+            See Our Solutions
+          </a>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
           {[
-            { value: "200+", label: "Emails automated daily", sub: "per client" },
-            { value: "99.9%", label: "Uptime SLA", sub: "guaranteed" },
-            { value: "< 48h", label: "Deployment time", sub: "from kickoff" },
-            { value: "0", label: "Data breaches", sub: "since founding" },
+            { value: "150+", label: "AI Employees Deployed", sub: "across industries" },
+            { value: "99.9%", label: "System Uptime", sub: "SLA guaranteed" },
+            { value: "< 2 weeks", label: "Full Deployment", sub: "from kickoff" },
+            { value: "10x", label: "Average ROI", sub: "within 6 months" },
           ].map((stat) => (
             <div
               key={stat.label}
-              className="p-4 rounded-xl border border-[#2A2A30] bg-[#16161A]/50 backdrop-blur-sm"
+              className="p-4 rounded-xl border border-[#2A2A30] bg-[#16161A]"
             >
               <div className="text-3xl font-black text-[#FF6B2B] mb-1">{stat.value}</div>
               <div className="text-sm text-[#E8E8F0] font-medium">{stat.label}</div>
@@ -99,130 +129,12 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Dashboard Preview with floating hero image */}
-        <div className="relative max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Dashboard Preview */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-transparent z-10 pointer-events-none" />
-              <div className="rounded-2xl border border-[#2A2A30] bg-[#16161A] overflow-hidden glow-orange-sm">
-                {/* Window chrome */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2A2A30] bg-[#111113]">
-                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
-                  <div className="flex-1 mx-4">
-                    <div className="bg-[#0A0A0B] rounded-md px-3 py-1 text-xs text-[#6B6B7A] text-center">
-                      openclaw-gateway:18789 — Control UI
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 text-xs text-green-400">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    LIVE
-                  </div>
-                </div>
 
-                {/* Dashboard content */}
-                <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {/* Left: Agent status */}
-                  <div className="md:col-span-1 space-y-3">
-                    <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-2">Active Agents</div>
-                    {[
-                      { name: "InboxZero Agent", status: "running", tasks: 47 },
-                      { name: "DevOps Ghost", status: "running", tasks: 12 },
-                      { name: "Sales Prospector", status: "idle", tasks: 0 },
-                    ].map((agent) => (
-                      <div key={agent.name} className="flex items-center justify-between p-3 rounded-lg bg-[#0A0A0B] border border-[#2A2A30]">
-                        <div className="flex items-center gap-2">
-                          <span className={`w-2 h-2 rounded-full ${agent.status === "running" ? "bg-green-400 animate-pulse" : "bg-[#6B6B7A]"}`} />
-                          <span className="text-xs text-[#E8E8F0]">{agent.name}</span>
-                        </div>
-                        {agent.tasks > 0 && (
-                          <span className="text-xs text-[#FF6B2B] font-mono">{agent.tasks} tasks</span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Middle: Event log */}
-                  <div className="md:col-span-1 space-y-2">
-                    <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-2">Live Event Log</div>
-                    {[
-                      { time: "15:44:02", event: "Email triaged → Priority 3", type: "info" },
-                      { time: "15:44:01", event: "GitHub issue #847 created", type: "success" },
-                      { time: "15:43:58", event: "HITL gate: Confirm invoice?", type: "warn" },
-                      { time: "15:43:55", event: "Sentry error detected", type: "error" },
-                      { time: "15:43:50", event: "Skill: calendar.schedule()", type: "info" },
-                    ].map((log, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs font-mono">
-                        <span className="text-[#6B6B7A] shrink-0">{log.time}</span>
-                        <span className={
-                          log.type === "success" ? "text-green-400" :
-                          log.type === "warn" ? "text-yellow-400" :
-                          log.type === "error" ? "text-red-400" :
-                          "text-[#E8E8F0]"
-                        }>{log.event}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Right: Skills */}
-                  <div className="md:col-span-1 space-y-2">
-                    <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-2">Installed Skills</div>
-                    {[
-                      { name: "gmail.triage", version: "2.1.0", active: true },
-                      { name: "github.issues", version: "1.4.2", active: true },
-                      { name: "slack.notify", version: "3.0.1", active: true },
-                      { name: "calendar.schedule", version: "1.2.0", active: true },
-                      { name: "crm.update", version: "0.9.1", active: false },
-                    ].map((skill) => (
-                      <div key={skill.name} className="flex items-center justify-between p-2 rounded bg-[#0A0A0B] border border-[#2A2A30]">
-                        <span className="text-xs font-mono text-[#FF6B2B]">{skill.name}</span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs text-[#6B6B7A]">v{skill.version}</span>
-                          <span className={`w-1.5 h-1.5 rounded-full ${skill.active ? "bg-green-400" : "bg-[#6B6B7A]"}`} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Hero Image with floating animation and glow */}
-            <div className="relative">
-              {/* Gradient glow behind image */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B2B]/20 via-[#FF6B2B]/10 to-transparent rounded-3xl blur-3xl transform scale-110" />
-              
-              {/* Floating image container */}
-              <div className="relative animate-float">
-                <div className="relative rounded-2xl overflow-hidden border border-[#FF6B2B]/30 shadow-2xl shadow-[#FF6B2B]/20">
-                  <Image
-                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"
-                    alt="AI and Robotics Illustration"
-                    width={600}
-                    height={500}
-                    className="w-full h-auto object-cover"
-                    priority
-                  />
-                  
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B]/60 via-transparent to-transparent" />
-                </div>
-              </div>
-
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#FF6B2B]/10 rounded-full blur-2xl" />
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#FF6B2B]/5 rounded-full blur-3xl" />
-            </div>
-          </div>
-        </div>
-
-        {/* Trusted by logos */}
-        <div className="mt-16">
-          <p className="text-sm text-[#6B6B7A] mb-6">Trusted by forward-thinking teams at</p>
+        {/* Client logos */}
+        <div className="mt-4">
+          <p className="text-sm text-[#6B6B7A] mb-6">Trusted by innovative businesses worldwide</p>
           <div className="flex flex-wrap items-center justify-center gap-8 opacity-40">
-            {["Acme Corp", "TechFlow", "DataSphere", "NexusAI", "CloudPeak", "VaultSec"].map((company) => (
+            {["TechVentures", "GlobalRetail", "FinanceHub", "HealthTech", "EduPlatform", "LogiChain"].map((company) => (
               <span key={company} className="text-[#E8E8F0] font-bold text-lg tracking-tight">
                 {company}
               </span>

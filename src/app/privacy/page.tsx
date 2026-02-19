@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - OpenClaw AI Agency",
+  title: "Privacy Policy - AI agency Claw",
   description:
-    "OpenClaw AI Agency Privacy Policy - Learn how we collect, use, and protect your personal information when you use our AI agent deployment services.",
+    "AI agency Claw Privacy Policy - Learn how we collect, use, and protect your personal information when you use our custom AI employee solutions.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://openclaw.agency/privacy",
+    canonical: "https://claw.agency/privacy",
   },
 };
 
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">Introduction</h2>
             <p className="text-[#9B9BA4] leading-relaxed mb-4">
-              At OpenClaw Agency (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you visit our website, use our services, or engage with our AI agent deployment solutions.
+              At AI agency Claw ("we," "our," or "us"), we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you visit our website, use our services, or engage with our custom AI employee solutions.
             </p>
             <p className="text-[#9B9BA4] leading-relaxed">
               By accessing or using our services, you agree to this Privacy Policy. If you do not agree with the terms of this policy, please do not use our services.
@@ -48,8 +48,8 @@ export default function PrivacyPage() {
               <li>Fill out a contact form or inquiry form</li>
               <li>Request a consultation or quote</li>
               <li>Subscribe to our newsletter</li>
-              <li>Engage our services for AI agent deployment</li>
-              <li>Communicate with us via email, phone, or other channels</li>
+              <li>Engage our services for AI employee solutions</li>
+              <li>Communicate with us via email, phone, WhatsApp, or other channels</li>
             </ul>
             <p className="text-[#9B9BA4] leading-relaxed mb-4">
               This information may include:
@@ -151,7 +151,7 @@ export default function PrivacyPage() {
             <ul className="list-disc list-inside text-[#9B9BA4] leading-relaxed mb-4 space-y-2">
               <li><strong>Access:</strong> Request copies of your personal data</li>
               <li><strong>Rectification:</strong> Request correction of inaccurate data</li>
-              <li><strong>Erasure:</strong> Request deletion of your personal data (&quot;right to be forgotten&quot;)</li>
+              <li><strong>Erasure:</strong> Request deletion of your personal data ("right to be forgotten")</li>
               <li><strong>Restriction:</strong> Request restriction of processing</li>
               <li><strong>Data Portability:</strong> Request transfer of your data to another service</li>
               <li><strong>Objection:</strong> Object to processing of your data</li>
@@ -168,7 +168,9 @@ export default function PrivacyPage() {
               <li><strong>Non-Discrimination:</strong> Not be discriminated against for exercising these rights</li>
             </ul>
             <p className="text-[#9B9BA4] leading-relaxed">
-              To exercise any of these rights, please contact us at <a href="mailto:hello@openclaw.agency" className="text-[#FF6B2B] hover:underline">hello@openclaw.agency</a>.
+              To exercise any of these rights, please contact us at{" "}
+              <a href="mailto:hello@claw.agency" className="text-[#FF6B2B] hover:underline">hello@claw.agency</a>{" "}
+              or via WhatsApp: <a href="https://wa.me/628113702343" className="text-[#FF6B2B] hover:underline">+62 811-3702-343</a>.
             </p>
           </section>
 
@@ -197,7 +199,7 @@ export default function PrivacyPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">Changes to This Policy</h2>
             <p className="text-[#9B9BA4] leading-relaxed mb-4">
-              We may update this Privacy Policy from time to time to reflect changes in our practices, technologies, or legal requirements. We will post any changes on this page and update the &quot;Last updated&quot; date at the top of this policy.
+              We may update this Privacy Policy from time to time to reflect changes in our practices, technologies, or legal requirements. We will post any changes on this page and update the "Last updated" date at the top of this policy.
             </p>
             <p className="text-[#9B9BA4] leading-relaxed">
               We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.
@@ -212,10 +214,18 @@ export default function PrivacyPage() {
             </p>
             <div className="bg-[#16161A] rounded-xl p-6 border border-[#2A2A30]">
               <p className="text-[#9B9BA4] leading-relaxed mb-2">
-                <strong className="text-white">OpenClaw Agency</strong>
+                <strong className="text-white">AI agency Claw</strong>
               </p>
               <p className="text-[#9B9BA4] leading-relaxed mb-2">
-                Email: <a href="mailto:hello@openclaw.agency" className="text-[#FF6B2B] hover:underline">hello@openclaw.agency</a>
+                Canggu, Bali, Indonesia
+              </p>
+              <p className="text-[#9B9BA4] leading-relaxed mb-2">
+                Email:{" "}
+                <a href="mailto:hello@claw.agency" className="text-[#FF6B2B] hover:underline">hello@claw.agency</a>
+              </p>
+              <p className="text-[#9B9BA4] leading-relaxed mb-2">
+                WhatsApp:{" "}
+                <a href="https://wa.me/628113702343" className="text-[#FF6B2B] hover:underline">+62 811-3702-343</a>
               </p>
               <p className="text-[#9B9BA4] leading-relaxed">
                 Response time: Within 2 business hours

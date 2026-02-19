@@ -1,263 +1,132 @@
-"use client";
+import { MessageSquare, HelpCircle, Rocket } from "lucide-react";
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { motion } from "framer-motion";
-import { CheckCircle, Loader2, AlertCircle } from "lucide-react";
-import { contactFormSchema, type ContactFormData } from "@/lib/schemas";
+const ctaCards = [
+  {
+    icon: MessageSquare,
+    title: "Free AI Consultation",
+    description:
+      "Get a personalized assessment of how AI employees can transform your specific business. No commitment, no pressure — just expert insights.",
+    buttonText: "Get Free Consultation →",
+    href: "https://wa.me/628113702343?text=Hi%20Claw%2C%20I%27d%20like%20a%20free%20AI%20consultation%20for%20my%20business",
+    subText: "30-minute call • Completely free",
+  },
+  {
+    icon: HelpCircle,
+    title: "Quick Question?",
+    description:
+      "Have a specific question about AI employees, pricing, or implementation? Chat with our team directly — we typically respond within 5 minutes.",
+    buttonText: "Ask Us Anything →",
+    href: "https://wa.me/628113702343?text=Hi%2C%20I%20have%20a%20quick%20question%20about%20your%20AI%20solutions",
+    subText: "Average response: 5 minutes",
+  },
+  {
+    icon: Rocket,
+    title: "Ready to Start?",
+    description:
+      "You know what you need. Let's skip the small talk and get your AI employees deployed. We'll have your first AI employee live within 2 weeks.",
+    buttonText: "Start My AI Project →",
+    href: "https://wa.me/628113702343?text=I%27m%20ready%20to%20start%20an%20AI%20employee%20project.%20Let%27s%20discuss%20next%20steps",
+    subText: "First AI employee live in 2 weeks",
+  },
+];
 
-type FormStatus = "idle" | "submitting" | "success" | "error";
+const trustSignals = [
+  "🔒 Your data is protected by Claw Shield™",
+  "⚡ Average WhatsApp response: 5 minutes",
+  "🎯 Free consultation, no strings attached",
+  "✅ No lock-in contracts, cancel anytime",
+];
 
 export default function CTASection() {
-  const [status, setStatus] = useState<FormStatus>("idle");
-  const [errorMessage, setErrorMessage] = useState<string>("");
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-  });
-
-  const onSubmit = async (data: ContactFormData) => {
-    setStatus("submitting");
-    setErrorMessage("");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "Something went wrong");
-      }
-
-      setStatus("success");
-      reset();
-    } catch (error) {
-      setStatus("error");
-      setErrorMessage(
-        error instanceof Error ? error.message : "An unexpected error occurred"
-      );
-    }
-  };
-
-  if (status === "success") {
-    return (
-      <section id="deploy" className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B2B]/10 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#FF6B2B]/10 blur-3xl rounded-full pointer-events-none" />
-        
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="p-8 rounded-2xl border border-[#2A2A30] bg-[#16161A] text-center"
-          >
-            <div className="flex justify-center mb-6">
-              <CheckCircle className="w-16 h-16 text-green-500" />
-            </div>
-            <h2 className="text-3xl font-black text-white mb-4">
-              Thank You!
-            </h2>
-            <p className="text-xl text-[#6B6B7A] mb-6">
-              Thank you for your inquiry! We'll be in touch within 24 hours.
-            </p>
-            <button
-              onClick={() => setStatus("idle")}
-              className="px-6 py-3 bg-[#FF6B2B] hover:bg-[#E5521A] text-white font-bold rounded-xl transition-all hover:scale-[1.02] glow-orange"
-            >
-              Send Another Message
-            </button>
-          </motion.div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section id="deploy" className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B2B]/10 via-transparent to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#FF6B2B]/10 blur-3xl rounded-full pointer-events-none" />
+    <section id="contact" className="py-24 relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B2B]/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#FF6B2B]/8 blur-3xl rounded-full pointer-events-none" />
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium mb-8">
-          <span className="w-2 h-2 rounded-full bg-[#FF6B2B] animate-pulse" />
-          Limited Slots Available — 3 Remaining This Month
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium mb-8">
+            <span className="w-2 h-2 rounded-full bg-[#FF6B2B] animate-pulse" />
+            🔥 Limited Availability — Only 5 Spots Left This Quarter
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+            Ready to Transform Your Business with{" "}
+            <span className="gradient-text">AI Employees?</span>
+          </h2>
+          <p className="text-xl text-[#6B6B7A] max-w-2xl mx-auto">
+            Don't let your competitors get ahead. Every day without AI automation is money left
+            on the table. Take the first step — it's completely free.
+          </p>
         </div>
 
-        <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
-          Ready to Deploy Your{" "}
-          <span className="gradient-text">First AI Agent?</span>
-        </h2>
-
-        <p className="text-xl text-[#6B6B7A] mb-10 max-w-2xl mx-auto">
-          Stop experimenting. Start automating. Book your free discovery call
-          today and we&apos;ll show you exactly which workflows to automate first
-          for maximum ROI.
-        </p>
-
-        {/* Contact form */}
-        <div className="p-8 rounded-2xl border border-[#2A2A30] bg-[#16161A] text-left mb-8">
-          <h3 className="text-xl font-black text-white mb-6 text-center">
-            Book Your Free Discovery Call
-          </h3>
-          
-          {status === "error" && (
-            <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center gap-3">
-              <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
-              <p className="text-red-400 text-sm">{errorMessage}</p>
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label className="block text-sm text-[#6B6B7A] mb-2">
-                  First Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  {...register("firstName")}
-                  type="text"
-                  placeholder="John"
-                  required
-                  className={`w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border ${
-                    errors.firstName ? "border-red-500" : "border-[#2A2A30]"
-                  } text-[#E8E8F0] placeholder-[#6B6B7A] focus:outline-none focus:border-[#FF6B2B] transition-colors text-sm`}
-                />
-                {errors.firstName && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.firstName.message}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label className="block text-sm text-[#6B6B7A] mb-2">
-                  Last Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  {...register("lastName")}
-                  type="text"
-                  placeholder="Smith"
-                  required
-                  className={`w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border ${
-                    errors.lastName ? "border-red-500" : "border-[#2A2A30]"
-                  } text-[#E8E8F0] placeholder-[#6B6B7A] focus:outline-none focus:border-[#FF6B2B] transition-colors text-sm`}
-                />
-                {errors.lastName && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.lastName.message}
-                  </p>
-                )}
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label className="block text-sm text-[#6B6B7A] mb-2">
-                  Work Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  {...register("email")}
-                  type="email"
-                  placeholder="john@company.com"
-                  required
-                  className={`w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border ${
-                    errors.email ? "border-red-500" : "border-[#2A2A30]"
-                  } text-[#E8E8F0] placeholder-[#6B6B7A] focus:outline-none focus:border-[#FF6B2B] transition-colors text-sm`}
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.email.message}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label className="block text-sm text-[#6B6B7A] mb-2">
-                  Company Size <span className="text-red-500">*</span>
-                </label>
-                <select
-                  {...register("companySize")}
-                  required
-                  className={`w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border ${
-                    errors.companySize ? "border-red-500" : "border-[#2A2A30]"
-                  } text-[#E8E8F0] focus:outline-none focus:border-[#FF6B2B] transition-colors text-sm`}
-                >
-                  <option value="">Select size...</option>
-                  <option value="1-10">1-10 employees</option>
-                  <option value="11-50">11-50 employees</option>
-                  <option value="51-200">51-200 employees</option>
-                  <option value="201-500">201-500 employees</option>
-                  <option value="500+">500+ employees</option>
-                </select>
-                {errors.companySize && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.companySize.message}
-                  </p>
-                )}
-              </div>
-            </div>
-            <div className="mb-6">
-              <label className="block text-sm text-[#6B6B7A] mb-2">
-                What workflow do you want to automate first?{" "}
-                <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                {...register("workflow")}
-                rows={3}
-                placeholder="e.g., We want to automate email triage for our support team and integrate with our Zendesk..."
-                required
-                className={`w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border ${
-                  errors.workflow ? "border-red-500" : "border-[#2A2A30]"
-                } text-[#E8E8F0] placeholder-[#6B6B7A] focus:outline-none focus:border-[#FF6B2B] transition-colors text-sm resize-none`}
-              />
-              {errors.workflow && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.workflow.message}
+        {/* 3 CTA Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {ctaCards.map((card) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={card.title}
+                className="rounded-2xl border border-[#2A2A30] bg-[#16161A] p-8 flex flex-col hover:border-[#FF6B2B]/40 transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#FF6B2B]/10 border border-[#FF6B2B]/20 flex items-center justify-center mb-5">
+                  <Icon className="w-6 h-6 text-[#FF6B2B]" />
+                </div>
+                <h3 className="text-lg font-black text-white mb-3">{card.title}</h3>
+                <p className="text-[#6B6B7A] text-sm leading-relaxed flex-1 mb-6">
+                  {card.description}
                 </p>
-              )}
-            </div>
-            <motion.button
-              type="submit"
-              disabled={status === "submitting"}
-              className="w-full py-4 bg-[#FF6B2B] hover:bg-[#E5521A] text-white font-bold text-lg rounded-xl transition-all glow-orange disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              whileHover={status !== "submitting" ? { scale: 1.02 } : {}}
-              whileTap={status !== "submitting" ? { scale: 0.98 } : {}}
-            >
-              {status === "submitting" ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  Sending...
-                </>
-              ) : (
-                "Book My Free Discovery Call →"
-              )}
-            </motion.button>
-            <p className="text-xs text-[#6B6B7A] text-center mt-3">
-              No commitment required. 30-minute call. We&apos;ll tell you exactly what&apos;s possible.
-            </p>
-          </form>
+                <a
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 rounded-xl bg-[#FF6B2B] hover:bg-[#E5521A] text-white font-bold text-center transition-all hover:scale-105 block mb-2"
+                >
+                  {card.buttonText}
+                </a>
+                <p className="text-xs text-[#6B6B7A] text-center">{card.subText}</p>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Trust signals */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-[#6B6B7A]">
-          {[
-            "🔒 No data shared",
-            "⚡ Response within 2 hours",
-            "🎯 Free workflow audit",
-            "✅ No lock-in contracts",
-          ].map((item) => (
-            <span key={item}>{item}</span>
+        {/* Trust Signals Row */}
+        <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-[#6B6B7A] mb-12">
+          {trustSignals.map((signal) => (
+            <span key={signal}>{signal}</span>
           ))}
+        </div>
+
+        {/* Social Proof */}
+        <div className="text-center mb-10">
+          <p className="text-[#E8E8F0] font-semibold mb-1">
+            Join 150+ businesses already using Claw AI Employees
+          </p>
+          <p className="text-sm text-[#6B6B7A]">
+            Last 3 clients signed up within 48 hours of their free consultation
+          </p>
+        </div>
+
+        {/* Large Final CTA */}
+        <div className="max-w-2xl mx-auto text-center">
+          <a
+            href="https://wa.me/628113702343"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-5 rounded-2xl bg-[#FF6B2B] hover:bg-[#E5521A] text-white font-black text-xl transition-all hover:scale-[1.02] glow-orange flex items-center justify-center gap-3 mb-4"
+          >
+            💬 Chat With Claw on WhatsApp Now
+          </a>
+          <p className="text-[#6B6B7A] text-sm">
+            Or call us directly:{" "}
+            <a
+              href="tel:+628113702343"
+              className="text-[#E8E8F0] hover:text-[#FF6B2B] transition-colors font-medium"
+            >
+              +62 811-3702-343
+            </a>
+          </p>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,279 +13,297 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://openclaw.agency"),
-  title: "OpenClaw AI Agency | Enterprise AI Agent Automation",
+  metadataBase: new URL("https://claw.agency"),
+  title: "AI agency Claw | Custom AI Employee Solutions for Business",
   description:
-    "We deploy hardened, production-ready OpenClaw AI agents for businesses. Docker sandboxing, multi-channel integration (Slack, WhatsApp, Teams), custom Skills, and 24/7 autonomous automation. No terminal hacks—just results.",
+    "AI agency Claw builds custom AI employees that automate your customer service, sales, marketing, and operations 24/7. Based in Canggu, Bali. Contact us on WhatsApp: +62 811-3702-343",
   keywords: [
-    "OpenClaw deployment",
-    "enterprise AI agent",
-    "AI automation agency",
+    "AI employees",
+    "business automation",
+    "custom AI solutions",
+    "AI implementation",
+    "automation agency",
+    "AI consultant",
+    "chatbot development",
+    "AI customer service",
+    "AI sales automation",
+    "AI marketing automation",
+    "AI agency Bali",
+    "AI employee solutions",
     "business AI automation",
-    "OpenClaw gateway",
-    "AI agent security",
-    "Docker AI sandbox",
-    "Slack AI agent",
-    "WhatsApp AI automation",
-    "custom AI skills",
-    "Claude AI deployment",
     "AI workflow automation",
     "autonomous AI agent",
-    "AI DevOps automation",
-    "email AI agent",
+    "AI integration services",
+    "WhatsApp AI automation",
+    "CRM AI integration",
+    "AI for business",
+    "Claw AI agency",
   ],
-  authors: [{ name: "OpenClaw AI Agency" }],
-  creator: "OpenClaw AI Agency",
-  publisher: "OpenClaw AI Agency",
-  manifest: "/manifest.json",
-  verification: {
-    google: "your-google-verification-code",
-    other: {
-      "msvalidate.01": "your-bing-verification-code",
-    },
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+  alternates: {
+    canonical: "https://claw.agency",
   },
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://openclaw.agency",
-    siteName: "OpenClaw AI Agency",
-    title: "OpenClaw AI Agency | Enterprise AI Agent Automation",
+    title: "AI agency Claw | Custom AI Employee Solutions",
     description:
-      "We deploy hardened, production-ready OpenClaw AI agents for businesses. Docker sandboxing, multi-channel integration, custom Skills, and 24/7 autonomous automation.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "OpenClaw AI Agency - Enterprise AI Agent Deployment",
-      },
-    ],
+      "AI agency Claw builds custom AI employees that automate your customer service, sales, marketing, and operations 24/7. Based in Canggu, Bali. Contact us on WhatsApp: +62 811-3702-343",
+    url: "https://claw.agency",
+    siteName: "AI agency Claw",
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenClaw AI Agency | Enterprise AI Agent Automation",
+    title: "AI agency Claw | Custom AI Employee Solutions",
     description:
-      "We deploy hardened, production-ready OpenClaw AI agents for businesses. No terminal hacks—just results.",
-    images: ["/og-image.png"],
+      "AI agency Claw builds custom AI employees that automate your customer service, sales, marketing, and operations 24/7. Based in Canggu, Bali. Contact us on WhatsApp: +62 811-3702-343",
+    creator: "@clawagency",
   },
-  alternates: {
-    canonical: "https://openclaw.agency",
+  verification: {
+    google: "google-site-verification-placeholder",
+    other: {
+      "msvalidate.01": "bing-verification-placeholder",
+    },
   },
 };
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "OpenClaw AI Agency",
-  description:
-    "Enterprise-grade OpenClaw AI agent deployment and automation services for businesses.",
-  url: "https://openclaw.agency",
-  logo: "https://openclaw.agency/logo.png",
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "sales",
-    email: "hello@openclaw.agency",
-  },
-  sameAs: [
-    "https://twitter.com/openclawagency",
-    "https://linkedin.com/company/openclaw-agency",
-  ],
-  offers: {
-    "@type": "Offer",
+export const viewport: Viewport = {
+  themeColor: "#FF6B2B",
+};
+
+const structuredData = [
+  // 1. Organization
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "AI agency Claw",
+    url: "https://claw.agency",
+    logo: "https://claw.agency/logo.png",
     description:
-      "Enterprise AI agent deployment, custom skill development, and ongoing management",
+      "Custom AI employee solutions for businesses worldwide. We build, deploy, and manage AI employees that automate customer service, sales, marketing, and operations 24/7.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Canggu",
+      addressRegion: "Bali",
+      addressCountry: "ID",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+62-811-3702-343",
+      contactType: "sales",
+      availableLanguage: ["English", "Indonesian"],
+    },
+    sameAs: [
+      "https://twitter.com/clawagency",
+      "https://linkedin.com/company/clawagency",
+      "https://instagram.com/clawagency",
+    ],
   },
-};
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is OpenClaw?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "OpenClaw is an enterprise-grade AI agent deployment framework that transforms experimental AI agents into production-ready business automation systems with hardened security, custom skills, and multi-channel integration.",
+  // 2. FAQPage
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What exactly is an AI employee and how is it different from a chatbot?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "An AI employee is a fully autonomous system that handles end-to-end business workflows across multiple channels, unlike a chatbot which only responds to simple queries. It learns your business, integrates with your tools, and operates 24/7 without human supervision.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "How long does deployment take?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Most deployments are completed within 2-4 weeks, depending on complexity. Our Starter package includes a 2-week deployment timeline, while Enterprise solutions may take 4-6 weeks.",
+      {
+        "@type": "Question",
+        name: "How does Claw ensure my business data is secure?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We implement enterprise-grade encryption, strict data access controls, and comply with international data protection standards. Your data is never used to train third-party models.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "What AI models do you support?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We support a fallback chain of Claude 3.5/4.0 → Gemini 2.0 Flash → GPT-4o Mini, ensuring 99.9% uptime through automatic model switching.",
+      {
+        "@type": "Question",
+        name: "What integrations do you support?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We support 100+ integrations including WhatsApp, Instagram, Slack, HubSpot, Salesforce, Shopify, and most major CRMs, ERPs, and communication platforms. Custom integrations are available on request.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "Is my data secure?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Absolutely. Every agent runs in Docker-sandboxed environments with OAuth2 secrets management, encrypted communications, and SOC2-compliant infrastructure.",
+      {
+        "@type": "Question",
+        name: "How long does it take to deploy an AI employee?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most AI employees are fully deployed within 2–4 weeks, depending on the complexity of integrations and the number of workflows required.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "What channels can agents integrate with?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our agents integrate with Slack, WhatsApp, Microsoft Teams, Discord, Telegram, Email, and custom webhooks.",
+      {
+        "@type": "Question",
+        name: "What happens if the AI makes a mistake?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Our AI employees include built-in escalation protocols that hand off to a human agent when confidence is low. We also monitor performance continuously and retrain the system to minimize errors over time.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "Do you offer ongoing support?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, all packages include ongoing support. Starter includes email support, Professional includes priority support with a dedicated Slack channel, and Enterprise includes 24/7 dedicated support.",
+      {
+        "@type": "Question",
+        name: "Can I try before committing to a full plan?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes — we offer a scoped pilot engagement so you can validate results before committing to a full deployment. Contact us on WhatsApp to discuss a pilot.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "Can I customize the agent's personality?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, our SOUL Workshop process defines your agent's personality, constraints, decision logic, and communication style through a comprehensive SOUL.md configuration.",
+      {
+        "@type": "Question",
+        name: "What industries do you serve?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We serve e-commerce, real estate, hospitality, healthcare, finance, SaaS, and professional services. Our AI employees are customized to each industry's specific workflows and compliance requirements.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "What's the pricing?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our Starter package begins at $2,497/month, Professional at $4,997/month, and Enterprise pricing is custom. All include deployment, hosting, and support.",
+      {
+        "@type": "Question",
+        name: "What's included in the monthly management fee?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The monthly fee covers ongoing monitoring, performance optimization, model retraining, integration maintenance, and priority support from our team.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "Do you offer a free consultation?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, we offer a free 30-minute discovery call to assess your automation needs and recommend the best solution.",
+      {
+        "@type": "Question",
+        name: "Can I scale up or add more AI employees later?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Absolutely. You can add additional AI employees or expand to new channels and workflows at any time. Our Growth and Enterprise plans are designed for multi-department scaling.",
+        },
       },
-    },
-    {
-      "@type": "Question",
-      name: "What industries do you serve?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We serve all industries including SaaS, e-commerce, healthcare, finance, legal, and manufacturing. Our agents are customized for each industry's specific workflows and compliance requirements.",
+      {
+        "@type": "Question",
+        name: "Why is Claw based in Bali, Indonesia?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Canggu, Bali is a global hub for tech talent and digital nomads, giving us access to world-class AI engineers while keeping costs competitive. We serve clients globally across all time zones.",
+        },
       },
-    },
-  ],
-};
+      {
+        "@type": "Question",
+        name: "Do you offer training for our team?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Every plan includes onboarding and training sessions for your team so they can work effectively alongside the AI employee and understand how to manage escalations.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What if I'm not satisfied with the results?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We offer a performance guarantee — if the AI employee doesn't meet agreed KPIs within the first 90 days, we will optimize at no extra cost or provide a prorated refund.",
+        },
+      },
+    ],
+  },
 
-const serviceSchemas = [
+  // 3. Service schemas
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "OpenClaw Starter",
-    description:
-      "Single AI agent deployment with 3 custom skills, 2 channel integrations, Docker-sandboxed hosting, email support, and 2-week deployment timeline.",
+    name: "AI Employee Starter Plan",
     provider: {
       "@type": "Organization",
-      name: "OpenClaw Agency",
+      name: "AI agency Claw",
+      url: "https://claw.agency",
     },
+    description:
+      "Entry-level AI employee deployment for small businesses. Includes one AI employee, core integrations, and 24/7 operations.",
     offers: {
       "@type": "Offer",
-      price: "2497",
+      price: "2997",
       priceCurrency: "USD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "2497",
+        price: "2997",
         priceCurrency: "USD",
         unitText: "MONTH",
       },
     },
+    url: "https://claw.agency/#pricing",
   },
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "OpenClaw Professional",
-    description:
-      "Up to 3 AI agents with 10 custom skills each, all channel integrations, advanced analytics dashboard, priority support with dedicated Slack channel, and 3-week deployment timeline.",
+    name: "AI Employee Growth Plan",
     provider: {
       "@type": "Organization",
-      name: "OpenClaw Agency",
+      name: "AI agency Claw",
+      url: "https://claw.agency",
     },
+    description:
+      "Comprehensive AI employee solution for growing businesses. Includes multiple AI employees, advanced integrations, and dedicated support.",
     offers: {
       "@type": "Offer",
-      price: "4997",
+      price: "7997",
       priceCurrency: "USD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "4997",
+        price: "7997",
         priceCurrency: "USD",
         unitText: "MONTH",
       },
     },
+    url: "https://claw.agency/#pricing",
   },
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "OpenClaw Enterprise",
-    description:
-      "Unlimited AI agents with unlimited custom skills, all channel integrations plus custom webhooks, white-label deployment, 24/7 dedicated support, custom SLA, and 4-6 week deployment timeline.",
+    name: "AI Employee Enterprise Plan",
     provider: {
       "@type": "Organization",
-      name: "OpenClaw Agency",
+      name: "AI agency Claw",
+      url: "https://claw.agency",
     },
+    description:
+      "Fully custom AI employee infrastructure for enterprise organizations. Custom pricing, unlimited AI employees, and white-glove service.",
     offers: {
       "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Custom pricing based on requirements",
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        description: "Custom pricing — contact us for a quote",
+      },
     },
+    url: "https://claw.agency/#pricing",
+  },
+
+  // 4. WebSite with SearchAction
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "AI agency Claw",
+    url: "https://claw.agency",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://claw.agency/?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  },
+
+  // 5. BreadcrumbList — Home only
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://claw.agency",
+      },
+    ],
   },
 ];
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "OpenClaw Agency",
-  url: "https://openclaw.agency",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://openclaw.agency/?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://openclaw.agency",
-    },
-  ],
-};
 
 export default function RootLayout({
   children,
@@ -295,41 +313,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <meta name="theme-color" content="#FF6B2B" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
-          }}
-        />
-        {serviceSchemas.map((schema, index) => (
+        {structuredData.map((schema, index) => (
           <script
-            key={`service-${index}`}
+            key={index}
             type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(schema),
-            }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
           />
         ))}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema),
-          }}
-        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

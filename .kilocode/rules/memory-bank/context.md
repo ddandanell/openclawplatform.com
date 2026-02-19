@@ -86,3 +86,4 @@ export async function GET() {
 |------|---------|
 | Initial | Template created with base setup |
 | 2026-02-19 | Built full OpenClaw Agency company site with 10 sections, SEO metadata, OpenClaw brand colors (#FF6B2B), interactive components |
+| 2026-02-19 | Fixed broken lightning.png and ripped-border.png 404 errors in Hero.tsx — replaced with CSS-based glow/gradient effects. Added `.catch(() => {})` to TeamVideo play() call. Site fully reviewed and all sections rendering correctly. |

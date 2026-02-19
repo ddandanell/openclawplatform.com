@@ -3,19 +3,19 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://openclaw.agency",
+      url: "https://claw.agency",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
-      url: "https://openclaw.agency/privacy",
+      url: "https://claw.agency/privacy",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: "https://openclaw.agency/terms",
+      url: "https://claw.agency/terms",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,

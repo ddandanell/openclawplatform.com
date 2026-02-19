@@ -1,87 +1,91 @@
+"use client";
+
+import Link from "next/link";
+import { Twitter, Linkedin, Instagram, MessageCircle, Mail, MapPin, Clock, Zap } from "lucide-react";
+
 export default function Footer() {
   return (
-    <footer id="contact" className="border-t border-[#2A2A30] bg-[#0A0A0B]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#FF6B2B] flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <footer id="footer" className="bg-[#0A0A0B] border-t border-[#2A2A30]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+        {/* 4-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+          {/* Column 1 — Brand */}
+          <div className="flex flex-col gap-5">
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-[#FF6B2B] rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M12 2L4 7v10l8 5 8-5V7L12 2z"
+                    d="M12 2L14.5 7H21L16 11L18 17L12 13.5L6 17L8 11L3 7H9.5L12 2Z"
+                    fill="white"
                     stroke="white"
-                    strokeWidth="2"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M12 2v20M4 7l8 5 8-5"
-                    stroke="white"
-                    strokeWidth="2"
+                    strokeWidth="0.5"
                     strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <span className="font-bold text-lg text-white">
-                OpenClaw<span className="text-[#FF6B2B]">AI Agency</span>
-              </span>
+              <div>
+                <span className="text-xl font-bold text-white">Claw</span>
+                <span className="text-xl font-bold text-[#FF6B2B] ml-1">AI Agency</span>
+              </div>
             </div>
-            <p className="text-sm text-[#6B6B7A] leading-relaxed mb-4">
-              Enterprise-grade OpenClaw deployment. We bridge the gap between
-              experimental AI agents and production-ready business automation.
+
+            {/* Tagline */}
+            <p className="text-[#6B6B7A] text-sm leading-relaxed">
+              Custom AI employee solutions for businesses worldwide. Headquartered in Canggu, Bali, Indonesia.
             </p>
-            <div className="flex gap-3">
-              {[
-                {
-                  label: "Twitter",
-                  href: "https://twitter.com/openclawagency",
-                  ariaLabel: "Follow us on Twitter",
-                  icon: (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                  ),
-                },
-                {
-                  label: "LinkedIn",
-                  href: "https://linkedin.com/company/openclawagency",
-                  ariaLabel: "Connect with us on LinkedIn",
-                  icon: (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  ),
-                },
-              ].map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="w-8 h-8 rounded-lg border border-[#2A2A30] flex items-center justify-center text-[#6B6B7A] hover:text-[#FF6B2B] hover:border-[#FF6B2B]/50 transition-all"
-                  aria-label={social.ariaLabel}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {social.icon}
-                </a>
-              ))}
+
+            {/* Social Links */}
+            <div className="flex items-center gap-3">
+              <a
+                href="https://twitter.com/clawagency"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+                className="w-9 h-9 rounded-lg bg-[#16161A] border border-[#2A2A30] flex items-center justify-center text-[#6B6B7A] hover:text-[#FF6B2B] hover:border-[#FF6B2B] transition-colors duration-200"
+              >
+                <Twitter size={16} />
+              </a>
+              <a
+                href="https://linkedin.com/company/clawagency"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-9 h-9 rounded-lg bg-[#16161A] border border-[#2A2A30] flex items-center justify-center text-[#6B6B7A] hover:text-[#FF6B2B] hover:border-[#FF6B2B] transition-colors duration-200"
+              >
+                <Linkedin size={16} />
+              </a>
+              <a
+                href="https://instagram.com/clawagency"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-9 h-9 rounded-lg bg-[#16161A] border border-[#2A2A30] flex items-center justify-center text-[#6B6B7A] hover:text-[#FF6B2B] hover:border-[#FF6B2B] transition-colors duration-200"
+              >
+                <Instagram size={16} />
+              </a>
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">Services</h4>
-            <ul className="space-y-2">
+          {/* Column 2 — Services */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-[#E8E8F0] font-semibold text-sm uppercase tracking-wider">Services</h3>
+            <ul className="flex flex-col gap-2.5">
               {[
-                "Hardened Security Setup",
-                "Custom Skill Development",
-                "Multi-Channel Integration",
-                "VPS Provisioning",
-                "SOUL Workshop",
-                "Fallback Chain Config",
-                "Ongoing Management",
+                "AI Employee Solutions",
+                "Need Assessment",
+                "System Configuration",
+                "Omnichannel Setup",
+                "Integration Services",
+                "24/7 Operations",
+                "Training & Support",
               ].map((item) => (
                 <li key={item}>
-                  <a href="#services" className="text-sm text-[#6B6B7A] hover:text-[#FF6B2B] transition-colors">
+                  <a
+                    href="#services"
+                    className="text-[#6B6B7A] text-sm hover:text-[#FF6B2B] transition-colors duration-200"
+                  >
                     {item}
                   </a>
                 </li>
@@ -89,88 +93,116 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Use Cases */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">Use Cases</h4>
-            <ul className="space-y-2">
+          {/* Column 3 — Company */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-[#E8E8F0] font-semibold text-sm uppercase tracking-wider">Company</h3>
+            <ul className="flex flex-col gap-2.5">
               {[
-                "Email Triage Automation",
-                "DevOps Monitoring",
-                "Sales Prospecting",
-                "Customer Support",
-                "Invoice Processing",
-                "HR Onboarding",
-                "Content Generation",
+                { label: "How It Works", href: "#process" },
+                { label: "Case Studies", href: "#case-studies" },
+                { label: "Credentials", href: "#credentials" },
+                { label: "Pricing", href: "#pricing" },
+                { label: "FAQ", href: "#faq" },
+                { label: "Privacy Policy", href: "/privacy" },
+                { label: "Terms of Service", href: "/terms" },
               ].map((item) => (
-                <li key={item}>
-                  <a href="#case-studies" className="text-sm text-[#6B6B7A] hover:text-[#FF6B2B] transition-colors">
-                    {item}
-                  </a>
+                <li key={item.label}>
+                  {item.href.startsWith("/") ? (
+                    <Link
+                      href={item.href}
+                      className="text-[#6B6B7A] text-sm hover:text-[#FF6B2B] transition-colors duration-200"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="text-[#6B6B7A] text-sm hover:text-[#FF6B2B] transition-colors duration-200"
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2">
-                <svg className="w-4 h-4 text-[#FF6B2B] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <a href="mailto:hello@openclaw.agency" className="text-sm text-[#6B6B7A] hover:text-[#FF6B2B] transition-colors">
-                  hello@openclaw.agency
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <svg className="w-4 h-4 text-[#FF6B2B] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-                <span className="text-sm text-[#6B6B7A]">
-                  Response within 2 business hours
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <svg className="w-4 h-4 text-[#FF6B2B] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="text-sm text-[#6B6B7A]">
-                  Mon–Fri, 9am–6pm UTC
-                </span>
-              </li>
-            </ul>
+          {/* Column 4 — Contact */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-[#E8E8F0] font-semibold text-sm uppercase tracking-wider">Contact</h3>
 
-            <div className="mt-6 p-4 rounded-xl bg-[#16161A] border border-[#2A2A30]">
-              <div className="text-xs text-[#6B6B7A] mb-2">Current availability</div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#FF6B2B] animate-pulse" />
-                <span className="text-sm text-[#E8E8F0] font-medium">3 slots open this month</span>
+            {/* WhatsApp — Prominent */}
+            <a
+              href="https://wa.me/628113702343"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[#16161A] border border-[#2A2A30] hover:border-[#25D366] rounded-xl p-3.5 group transition-colors duration-200"
+            >
+              <div className="w-10 h-10 rounded-lg bg-[#25D366]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#25D366]/20 transition-colors duration-200">
+                <MessageCircle size={20} className="text-[#25D366]" />
               </div>
+              <div>
+                <p className="text-xs text-[#6B6B7A] mb-0.5">WhatsApp</p>
+                <p className="text-[#E8E8F0] font-semibold text-base leading-tight">+62 811-3702-343</p>
+              </div>
+            </a>
+
+            {/* Email */}
+            <div className="flex items-center gap-3">
+              <Mail size={16} className="text-[#6B6B7A] flex-shrink-0" />
+              <a
+                href="mailto:hello@claw.agency"
+                className="text-[#6B6B7A] text-sm hover:text-[#FF6B2B] transition-colors duration-200"
+              >
+                hello@claw.agency
+              </a>
+            </div>
+
+            {/* Location */}
+            <div className="flex items-center gap-3">
+              <MapPin size={16} className="text-[#6B6B7A] flex-shrink-0" />
+              <span className="text-[#6B6B7A] text-sm">Canggu, Bali, Indonesia</span>
+            </div>
+
+            {/* Hours */}
+            <div className="flex items-center gap-3">
+              <Clock size={16} className="text-[#6B6B7A] flex-shrink-0" />
+              <span className="text-[#6B6B7A] text-sm">Available globally, all time zones</span>
+            </div>
+
+            {/* Availability Box */}
+            <div className="flex items-center gap-2.5 bg-[#FF6B2B]/10 border border-[#FF6B2B]/20 rounded-lg px-3.5 py-2.5 mt-1">
+              <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6B2B] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF6B2B]"></span>
+              </span>
+              <span className="text-[#FF6B2B] text-sm font-medium">5 spots open this quarter</span>
+              <Zap size={14} className="text-[#FF6B2B] ml-auto flex-shrink-0" />
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-[#2A2A30] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-[#6B6B7A]">
-            © 2026 OpenClaw AI Agency. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            {[
-                { name: "Privacy Policy", href: "/privacy", ariaLabel: "Read our Privacy Policy" },
-                { name: "Terms of Service", href: "/terms", ariaLabel: "Read our Terms of Service" },
-                { name: "Security", href: "#security", ariaLabel: "Learn about our Security practices" },
-              ].map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm text-[#6B6B7A] hover:text-[#FF6B2B] transition-colors"
-                  aria-label={item.ariaLabel}
-                >
-                  {item.name}
-                </a>
-              ))}
+        {/* Divider */}
+        <div className="border-t border-[#2A2A30] pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-[#6B6B7A] text-sm">
+              © 2025 AI agency Claw. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/privacy"
+                className="text-[#6B6B7A] text-sm hover:text-[#FF6B2B] transition-colors duration-200"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-[#2A2A30]">|</span>
+              <Link
+                href="/terms"
+                className="text-[#6B6B7A] text-sm hover:text-[#FF6B2B] transition-colors duration-200"
+              >
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </div>
       </div>

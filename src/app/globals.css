@@ -127,3 +127,58 @@ body {
               linear-gradient(135deg, #FF6B2B, #FF8C55, #FF6B2B) border-box;
   border: 1px solid transparent;
 }
+
+/* WhatsApp floating button animations */
+@keyframes pulse-whatsapp {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-pulse-whatsapp {
+  animation: pulse-whatsapp 2s ease-in-out infinite;
+}
+
+/* WhatsApp CTA pulse for inline buttons */
+@keyframes cta-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.animate-cta-pulse {
+  animation: cta-pulse 3s ease-in-out infinite;
+}
+
+/* Slide up entrance */
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up-fade {
+  animation: slide-up-fade 0.5s ease-out forwards;
+}
+
+/* Subtle video zoom-out for smoother background motion */
+.hero-video-scale {
+  transform: scale(0.92);
+  transform-origin: center;
+  will-change: transform;
+  transition: transform 300ms ease;
+}
+
+/* Hero scale and overlay utilities */
+/* removed hero-scale and hero-overlay utilities per user request */

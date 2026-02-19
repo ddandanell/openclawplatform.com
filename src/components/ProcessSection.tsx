@@ -1,130 +1,157 @@
-import { FileText, PenTool, Rocket, HeadphonesIcon, ArrowRight, Server, Terminal, BookOpen, Wrench, Link2, CheckCircle2 } from "lucide-react";
+import { Search, Layout, Wrench, Rocket, HeartHandshake, CheckCircle2, ArrowRight } from "lucide-react";
+
+const steps = [
+  {
+    step: "01",
+    title: "Need Assessment & Discovery",
+    duration: "Week 1",
+    icon: Search,
+    description:
+      "We dive deep into your business to understand exactly where AI employees will deliver the highest ROI.",
+    deliverables: [
+      "Business goal mapping complete",
+      "Workflow analysis documented",
+      "Opportunity matrix created",
+      "Strategic AI roadmap delivered",
+      "ROI projections finalized",
+    ],
+  },
+  {
+    step: "02",
+    title: "System Definition & Architecture",
+    duration: "Week 1–2",
+    icon: Layout,
+    description:
+      "We architect your complete AI employee ecosystem — every channel, every integration, every workflow.",
+    deliverables: [
+      "Omnichannel strategy defined",
+      "Integration architecture mapped",
+      "Chat, phone & email systems designed",
+      "CRM connectivity planned",
+      "Security protocols established",
+    ],
+  },
+  {
+    step: "03",
+    title: "Custom Build & Configuration",
+    duration: "Week 2–3",
+    icon: Wrench,
+    description:
+      "Our engineers build your custom AI employees with precision — every tool, skill, and integration tailored to your needs.",
+    deliverables: [
+      "Agent hub configured",
+      "Custom tools & skills developed",
+      "Database architecture created",
+      "Permission structures set",
+      "All integrations connected & tested",
+    ],
+  },
+  {
+    step: "04",
+    title: "Testing & Launch",
+    duration: "Week 3–4",
+    icon: Rocket,
+    description:
+      "Rigorous testing ensures your AI employees perform flawlessly before going live.",
+    deliverables: [
+      "End-to-end testing complete",
+      "Performance benchmarks met",
+      "Security audit passed",
+      "Team training delivered",
+      "Production launch executed",
+    ],
+  },
+  {
+    step: "05",
+    title: "Ongoing Operations & Support",
+    duration: "Ongoing",
+    icon: HeartHandshake,
+    description:
+      "Your AI employees are live — and we're right beside you, optimizing and expanding.",
+    deliverables: [
+      "24/7 monitoring active",
+      "Continuous improvement cycles",
+      "Dedicated account manager assigned",
+      "Monthly performance reports",
+      "New automation expansions",
+    ],
+  },
+];
+
+const timeline = [
+  { label: "Discovery & Assessment", period: "Week 1" },
+  { label: "Architecture & Design", period: "Week 2" },
+  { label: "Build & Configure", period: "Week 3" },
+  { label: "Test & Launch", period: "Week 4" },
+  { label: "Optimize & Scale", period: "Ongoing" },
+];
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="process" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium mb-6">
-            🚀 Our Process
+            🚀 How It Works
           </div>
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
-            From Kickoff to{" "}
-            <span className="gradient-text">Production in 48 Hours</span>
+            From Discovery to{" "}
+            <span className="gradient-text">Full Production in 5 Steps</span>
           </h2>
           <p className="text-xl text-[#6B6B7A] max-w-3xl mx-auto">
-            We&apos;ve refined our deployment process across 50+ enterprise clients.
-            Here&apos;s exactly how we turn your business requirements into a
-            production-ready AI agent.
+            Our proven 5-phase methodology has been refined across 150+ implementations. Here's exactly how we transform your business with AI employees.
           </p>
         </div>
 
         {/* Process steps */}
         <div className="relative">
-          {/* Connecting line with arrow */}
+          {/* Vertical connecting line (desktop) */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#FF6B2B] via-[#FF6B2B]/50 to-transparent hidden md:block" />
-          <div className="absolute left-8 bottom-0 w-px h-8 bg-gradient-to-t from-[#FF6B2B]/50 to-transparent hidden md:block" />
           <div className="absolute left-[30px] bottom-0 hidden md:flex items-center justify-center w-4 h-4 rounded-full bg-[#FF6B2B] z-10">
             <ArrowRight className="w-2 h-2 text-white rotate-[-90deg]" />
           </div>
 
           <div className="space-y-8">
-            {[
-              {
-                step: "01",
-                title: "Discovery & Provisioning",
-                duration: "Day 1 — 2 hours",
-                description:
-                  "We start with a deep-dive call to understand your workflows, pain points, and automation goals. Simultaneously, we provision a dedicated Linux VPS with a non-root user, configure firewall rules, and set up monitoring.",
-                code: "$ ssh deploy@your-vps.com\n$ sudo useradd -m -s /bin/bash openclaw\n$ ufw allow 22,443/tcp",
-                deliverables: ["Dedicated VPS provisioned", "Security hardening complete", "Monitoring configured"],
-                icon: Server,
-              },
-              {
-                step: "02",
-                title: "Daemonized Installation",
-                duration: "Day 1 — 1 hour",
-                description:
-                  "We install OpenClaw as a system daemon—not a terminal process. This means your agent runs 24/7, survives reboots, and auto-restarts on failure. We configure Docker sandboxing and set workspace permissions.",
-                code: "$ openclaw onboard --install-daemon\n$ openclaw config set workspaceAccess ro\n$ systemctl enable openclaw",
-                deliverables: ["Daemon installed & running", "Docker sandbox configured", "Auto-restart enabled"],
-                icon: Terminal,
-              },
-              {
-                step: "03",
-                title: "The SOUL Workshop",
-                duration: "Day 1 — 3 hours",
-                description:
-                  "This is where your expertise meets ours. We run a structured workshop to define your agent&apos;s SOUL.md—its personality, constraints, escalation paths, and decision-making logic. This document is the brain of your agent.",
-                code: "# SOUL.md\nYou are [Company]'s AI assistant.\nTone: Professional, concise.\nNEVER: Send emails without HITL approval.\nALWAYS: Log all financial actions.",
-                deliverables: ["SOUL.md defined", "Tone & persona set", "HITL gates configured"],
-                icon: BookOpen,
-              },
-              {
-                step: "04",
-                title: "Skill Installation & Custom Development",
-                duration: "Day 1-2 — 4-8 hours",
-                description:
-                  "We install standard Skills (Calendar, Drive, Gmail, Slack) and develop any custom Skills your business needs. ERP connectors, CRM integrations, proprietary API wrappers—we build them as proper SKILL.md files.",
-                code: "$ openclaw skills install gmail calendar drive\n$ openclaw skills install ./custom/crm-connector\n$ openclaw skills install ./custom/erp-bridge",
-                deliverables: ["Standard skills installed", "Custom skills developed", "Integration tests passing"],
-                icon: Wrench,
-              },
-              {
-                step: "05",
-                title: "Channel Pairing & Secure Handover",
-                duration: "Day 2 — 2 hours",
-                description:
-                  "We configure your communication channels using private DM pairing codes—never exposing the Control UI to the public internet. We set up Cloudflare Zero Trust or Tailscale for secure dashboard access, then hand over the keys.",
-                code: "$ openclaw pair --channel slack --private\n$ openclaw pair --channel whatsapp --private\n# Dashboard: https://your-agent.company.com",
-                deliverables: ["Channels paired securely", "Dashboard protected by ZT", "Team access configured"],
-                icon: Link2,
-              },
-            ].map((item, i) => (
+            {steps.map((item) => (
               <div key={item.step} className="relative flex gap-8 group">
-                {/* Step indicator */}
+                {/* Step icon (desktop) */}
                 <div className="relative shrink-0 hidden md:flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-2xl bg-[#FF6B2B] flex items-center justify-center text-white font-black text-lg z-10 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#FF6B2B]/30">
+                  <div className="w-16 h-16 rounded-2xl bg-[#FF6B2B] flex items-center justify-center text-white z-10 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#FF6B2B]/30">
                     <item.icon className="w-7 h-7" />
                   </div>
                 </div>
 
-                {/* Content */}
+                {/* Content card */}
                 <div className="flex-1 pb-8 group-hover:translate-x-2 transition-transform duration-300">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div className="p-6 rounded-2xl border border-[#2A2A30] bg-[#16161A] group-hover:border-[#FF6B2B]/30 group-hover:shadow-lg group-hover:shadow-[#FF6B2B]/10 transition-all duration-300">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="md:hidden w-10 h-10 rounded-xl bg-[#FF6B2B] flex items-center justify-center text-white font-black text-sm">
-                          {item.step}
-                        </div>
-                        <div>
-                          <div className="text-xs text-[#FF6B2B] font-medium">{item.duration}</div>
-                          <h3 className="text-xl font-black text-white">{item.title}</h3>
-                        </div>
+                  <div className="p-6 rounded-2xl border border-[#2A2A30] bg-[#16161A] group-hover:border-[#FF6B2B]/30 group-hover:shadow-lg group-hover:shadow-[#FF6B2B]/10 transition-all duration-300">
+                    {/* Card header */}
+                    <div className="flex items-center gap-3 mb-4">
+                      {/* Mobile icon */}
+                      <div className="md:hidden w-10 h-10 rounded-xl bg-[#FF6B2B] flex items-center justify-center text-white shrink-0">
+                        <item.icon className="w-5 h-5" />
                       </div>
-                      <p className="text-sm text-[#6B6B7A] leading-relaxed mb-4">{item.description}</p>
-                      <div className="space-y-2">
-                        {item.deliverables.map((d) => (
-                          <div key={d} className="flex items-center gap-2 text-sm text-[#E8E8F0]">
-                            <CheckCircle2 className="w-4 h-4 text-[#FF6B2B] shrink-0" />
-                            {d}
-                          </div>
-                        ))}
+                      <div>
+                        <div className="text-xs text-[#FF6B2B] font-medium">
+                          Step {item.step} · {item.duration}
+                        </div>
+                        <h3 className="text-xl font-black text-white">{item.title}</h3>
                       </div>
                     </div>
 
-                    <div className="rounded-2xl bg-[#0A0A0B] border border-[#2A2A30] overflow-hidden">
-                      <div className="flex items-center gap-2 px-4 py-2 border-b border-[#2A2A30]">
-                        <div className="w-2 h-2 rounded-full bg-red-500/70" />
-                        <div className="w-2 h-2 rounded-full bg-yellow-500/70" />
-                        <div className="w-2 h-2 rounded-full bg-green-500/70" />
-                        <span className="text-xs text-[#6B6B7A] ml-2">terminal</span>
-                      </div>
-                      <pre className="p-4 text-xs font-mono text-green-400 overflow-x-auto whitespace-pre-wrap">
-                        {item.code}
-                      </pre>
+                    <p className="text-sm text-[#6B6B7A] leading-relaxed mb-5">
+                      {item.description}
+                    </p>
+
+                    {/* Deliverables checklist */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {item.deliverables.map((d) => (
+                        <div key={d} className="flex items-center gap-2 text-sm text-[#E8E8F0]">
+                          <CheckCircle2 className="w-4 h-4 text-[#FF6B2B] shrink-0" />
+                          {d}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -135,16 +162,21 @@ export default function ProcessSection() {
 
         {/* Timeline summary */}
         <div className="mt-8 p-8 rounded-2xl border border-[#FF6B2B]/30 bg-gradient-to-br from-[#FF6B2B]/10 to-transparent">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-            {[
-              { label: "Kickoff Call", time: "Hour 0" },
-              { label: "VPS Live", time: "Hour 3" },
-              { label: "Agent Running", time: "Hour 12" },
-              { label: "Full Production", time: "Hour 48" },
-            ].map((milestone) => (
-              <div key={milestone.label}>
-                <div className="text-2xl font-black text-[#FF6B2B]">{milestone.time}</div>
-                <div className="text-sm text-[#E8E8F0] mt-1">{milestone.label}</div>
+          <h4 className="text-sm font-bold text-[#FF6B2B] uppercase tracking-wider text-center mb-6">
+            Project Timeline
+          </h4>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-center">
+            {timeline.map((t, i) => (
+              <div key={t.period} className="relative">
+                {/* Connector line between items (desktop) */}
+                {i < timeline.length - 1 && (
+                  <div className="hidden md:block absolute top-4 left-[calc(50%+24px)] right-[-50%] h-px bg-[#FF6B2B]/30" />
+                )}
+                <div className="w-8 h-8 rounded-full bg-[#FF6B2B] flex items-center justify-center text-white text-xs font-black mx-auto mb-2 relative z-10">
+                  {i + 1}
+                </div>
+                <div className="text-sm font-black text-[#FF6B2B]">{t.period}</div>
+                <div className="text-xs text-[#E8E8F0] mt-1">{t.label}</div>
               </div>
             ))}
           </div>

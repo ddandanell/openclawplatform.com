@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "OpenClaw AI Agency - Enterprise AI Agent Deployment";
+export const alt = "AI agency Claw - Custom AI Employee Solutions";
 export const size = {
   width: 1200,
   height: 630,
@@ -14,7 +14,7 @@ export default function Image() {
     (
       <div
         style={{
-          background: "#0A0A0A",
+          background: "#0A0A0B",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -135,9 +135,8 @@ export default function Image() {
               lineHeight: 1.1,
             }}
           >
-            Open
+            AI agency{" "}
             <span style={{ color: "#FF6B2B" }}>Claw</span>
-            {" "}Agency
           </h1>
 
           <p
@@ -150,7 +149,21 @@ export default function Image() {
               textTransform: "uppercase",
             }}
           >
-            Enterprise AI Agent Deployment
+            Custom AI Employee Solutions
+          </p>
+
+          {/* Description */}
+          <p
+            style={{
+              fontSize: "18px",
+              color: "rgba(255,255,255,0.45)",
+              margin: "8px 0 0",
+              fontWeight: 400,
+              textAlign: "center",
+              maxWidth: "700px",
+            }}
+          >
+            Build, deploy, and manage AI employees that automate your business 24/7
           </p>
         </div>
 
@@ -180,7 +193,7 @@ export default function Image() {
               textTransform: "uppercase",
             }}
           >
-            openclaw.agency
+            claw.agency
           </span>
           <div
             style={{

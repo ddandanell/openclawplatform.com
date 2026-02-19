@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/api/",
       },
     ],
-    sitemap: "https://openclaw.agency/sitemap.xml",
+    sitemap: "https://claw.agency/sitemap.xml",
   };
 }

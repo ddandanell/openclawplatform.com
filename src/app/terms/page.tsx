@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Service - OpenClaw AI Agency",
+  title: "Terms of Service - AI agency Claw",
   description:
-    "OpenClaw AI Agency Terms of Service - Learn the terms and conditions governing your use of our AI agent deployment services.",
+    "AI agency Claw Terms of Service - Learn the terms and conditions governing your use of our custom AI employee solutions.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://openclaw.agency/terms",
+    canonical: "https://claw.agency/terms",
   },
 };
 
@@ -29,7 +29,7 @@ export default function TermsPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">1. Acceptance of Terms</h2>
             <p className="text-[#9B9BA4] leading-relaxed mb-4">
-              By accessing and using the OpenClaw Agency website and services (&quot;Services&quot;), you accept and agree to be bound by the terms and provision of this Agreement. Additionally, when using our Services, you shall be subject to any posted guidelines or rules applicable to such services.
+              By accessing and using the AI agency Claw website and services ("Services"), you accept and agree to be bound by the terms and provision of this Agreement. Additionally, when using our Services, you shall be subject to any posted guidelines or rules applicable to such services.
             </p>
             <p className="text-[#9B9BA4] leading-relaxed">
               If you do not agree to these Terms of Service, you should not use our Services. We reserve the right to update these terms at any time without prior notice.
@@ -40,7 +40,7 @@ export default function TermsPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">2. Description of Service</h2>
             <p className="text-[#9B9BA4] leading-relaxed mb-4">
-              OpenClaw Agency provides enterprise-grade AI agent deployment services, including but not limited to:
+              AI agency Claw provides custom AI employee solutions for businesses worldwide, including but not limited to:
             </p>
             <ul className="list-disc list-inside text-[#9B9BA4] leading-relaxed mb-4 space-y-2">
               <li>Hardened Security Setup</li>
@@ -116,7 +116,7 @@ export default function TermsPage() {
               <li>Refunds are handled on a case-by-case basis</li>
             </ul>
             <p className="text-[#9B9BA4] leading-relaxed">
-              We reserve the right to modify our pricing with 30 days&apos; prior notice.
+              We reserve the right to modify our pricing with 30 days' prior notice.
             </p>
           </section>
 
@@ -124,11 +124,11 @@ export default function TermsPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">5. Intellectual Property Rights</h2>
             <p className="text-[#9B9BA4] leading-relaxed mb-4">
-              The Services and all content, features, and functionality are owned by OpenClaw Agency and are protected by copyright, trademark, and other intellectual property laws.
+              The Services and all content, features, and functionality are owned by AI agency Claw and are protected by copyright, trademark, and other intellectual property laws.
             </p>
             <h3 className="text-xl font-semibold text-white mb-3 mt-6">Our Rights</h3>
             <ul className="list-disc list-inside text-[#9B9BA4] leading-relaxed mb-4 space-y-2">
-              <li>All OpenClaw technology and frameworks</li>
+              <li>All Claw technology and frameworks</li>
               <li>Our proprietary methodologies and processes (including SOUL Workshop)</li>
               <li>Documentation, templates, and training materials</li>
               <li>Brand identity, logos, and trademarks</li>
@@ -152,7 +152,7 @@ export default function TermsPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">6. Limitation of Liability</h2>
             <p className="text-[#9B9BA4] leading-relaxed mb-4">
-              TO THE MAXIMUM EXTENT PERMITTED BY LAW, OPENCLAW AGENCY SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION:
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, AI AGENCY CLAW SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION:
             </p>
             <ul className="list-disc list-inside text-[#9B9BA4] leading-relaxed mb-4 space-y-2">
               <li>Loss of profits, revenue, or business opportunities</li>
@@ -172,7 +172,7 @@ export default function TermsPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">7. Service Level Agreement</h2>
             <p className="text-[#9B9BA4] leading-relaxed mb-4">
-              We commit to the following service levels for our deployed AI agents:
+              We commit to the following service levels for our deployed AI employees:
             </p>
             <ul className="list-disc list-inside text-[#9B9BA4] leading-relaxed mb-4 space-y-2">
               <li><strong>Uptime:</strong> 99.9% availability through our fallback chain (Claude 3.5/4.0 → Gemini 2.0 Flash → GPT-4o Mini)</li>
@@ -181,7 +181,7 @@ export default function TermsPage() {
               <li><strong>Support Channels:</strong> Email (all tiers), Priority Slack (Professional+), 24/7 Dedicated (Enterprise)</li>
             </ul>
             <p className="text-[#9B9BA4] leading-relaxed">
-              Scheduled maintenance will be communicated with at least 48 hours&apos; notice. Exclusions apply for force majeure events.
+              Scheduled maintenance will be communicated with at least 48 hours' notice. Exclusions apply for force majeure events.
             </p>
           </section>
 
@@ -214,10 +214,10 @@ export default function TermsPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">9. Governing Law</h2>
             <p className="text-[#9B9BA4] leading-relaxed mb-4">
-              These Terms of Service shall be governed by and construed in accordance with the laws of [Jurisdiction], without regard to its conflict of law provisions.
+              These Terms of Service shall be governed by and construed in accordance with the laws of Indonesia, without regard to its conflict of law provisions.
             </p>
             <p className="text-[#9B9BA4] leading-relaxed">
-              Any legal action or proceeding relating to these Terms shall be subject to the exclusive jurisdiction of the courts located in [Jurisdiction].
+              Any legal action or proceeding relating to these Terms shall be subject to the exclusive jurisdiction of the courts located in Bali, Indonesia.
             </p>
           </section>
 
@@ -232,7 +232,7 @@ export default function TermsPage() {
             </p>
             <ul className="list-disc list-inside text-[#9B9BA4] leading-relaxed mb-4 space-y-2">
               <li>Mediation by a mutually agreed mediator</li>
-              <li>Binding arbitration in accordance with [Arbitration Rules]</li>
+              <li>Binding arbitration in accordance with applicable arbitration rules</li>
               <li>Legal proceedings in applicable courts</li>
             </ul>
             <p className="text-[#9B9BA4] leading-relaxed">
@@ -266,10 +266,18 @@ export default function TermsPage() {
             </p>
             <div className="bg-[#16161A] rounded-xl p-6 border border-[#2A2A30]">
               <p className="text-[#9B9BA4] leading-relaxed mb-2">
-                <strong className="text-white">OpenClaw Agency</strong>
+                <strong className="text-white">AI agency Claw</strong>
               </p>
               <p className="text-[#9B9BA4] leading-relaxed mb-2">
-                Email: <a href="mailto:hello@openclaw.agency" className="text-[#FF6B2B] hover:underline">hello@openclaw.agency</a>
+                Canggu, Bali, Indonesia
+              </p>
+              <p className="text-[#9B9BA4] leading-relaxed mb-2">
+                Email:{" "}
+                <a href="mailto:hello@claw.agency" className="text-[#FF6B2B] hover:underline">hello@claw.agency</a>
+              </p>
+              <p className="text-[#9B9BA4] leading-relaxed mb-2">
+                WhatsApp:{" "}
+                <a href="https://wa.me/628113702343" className="text-[#FF6B2B] hover:underline">+62 811-3702-343</a>
               </p>
               <p className="text-[#9B9BA4] leading-relaxed">
                 Response time: Within 2 business hours
