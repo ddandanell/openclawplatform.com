@@ -114,3 +114,16 @@ body {
   stroke-dasharray: 200;
   animation: flow 2s linear infinite;
 }
+
+/* Gradient border hover effect */
+.gradient-border-hover {
+  background: linear-gradient(#16161A, #16161A) padding-box,
+              linear-gradient(135deg, #FF6B2B, transparent, #FF6B2B) border-box;
+  border: 1px solid transparent;
+}
+
+.gradient-border-hover:hover {
+  background: linear-gradient(#16161A, #16161A) padding-box,
+              linear-gradient(135deg, #FF6B2B, #FF8C55, #FF6B2B) border-box;
+  border: 1px solid transparent;
+}

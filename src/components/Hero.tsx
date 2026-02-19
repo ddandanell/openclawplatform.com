@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { Bot, Shield, Zap, Play } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -8,10 +10,20 @@ export default function Hero() {
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#FF6B2B]/3 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium mb-8">
-          <span className="w-2 h-2 rounded-full bg-[#FF6B2B] animate-pulse" />
-          Trusted by 50+ Enterprise Teams in 2026
+        {/* Feature badges with Lucide icons */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium">
+            <Bot className="w-4 h-4" />
+            AI-Powered Automation
+          </div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium">
+            <Shield className="w-4 h-4" />
+            Enterprise Security
+          </div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FF6B2B]/30 bg-[#FF6B2B]/10 text-[#FF6B2B] text-sm font-medium">
+            <Zap className="w-4 h-4" />
+            Real-Time Execution
+          </div>
         </div>
 
         {/* Headline */}
@@ -60,6 +72,12 @@ export default function Hero() {
             </svg>
             Get a Security Audit
           </a>
+          <button
+            className="px-8 py-4 border border-[#2A2A30] hover:border-[#FF6B2B]/50 text-[#E8E8F0] font-semibold text-lg rounded-xl transition-all hover:bg-[#16161A] flex items-center gap-2 group"
+          >
+            <Play className="w-5 h-5 text-[#FF6B2B] group-hover:scale-110 transition-transform" />
+            Watch Demo
+          </button>
         </div>
 
         {/* Stats */}
@@ -81,89 +99,121 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Dashboard Preview */}
-        <div className="relative max-w-5xl mx-auto">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-transparent z-10 pointer-events-none" />
-          <div className="rounded-2xl border border-[#2A2A30] bg-[#16161A] overflow-hidden glow-orange-sm">
-            {/* Window chrome */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2A2A30] bg-[#111113]">
-              <div className="w-3 h-3 rounded-full bg-red-500/70" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-              <div className="w-3 h-3 rounded-full bg-green-500/70" />
-              <div className="flex-1 mx-4">
-                <div className="bg-[#0A0A0B] rounded-md px-3 py-1 text-xs text-[#6B6B7A] text-center">
-                  openclaw-gateway:18789 — Control UI
+        {/* Dashboard Preview with floating hero image */}
+        <div className="relative max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Dashboard Preview */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-transparent z-10 pointer-events-none" />
+              <div className="rounded-2xl border border-[#2A2A30] bg-[#16161A] overflow-hidden glow-orange-sm">
+                {/* Window chrome */}
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2A2A30] bg-[#111113]">
+                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
+                  <div className="flex-1 mx-4">
+                    <div className="bg-[#0A0A0B] rounded-md px-3 py-1 text-xs text-[#6B6B7A] text-center">
+                      openclaw-gateway:18789 — Control UI
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 text-xs text-green-400">
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    LIVE
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-1 text-xs text-green-400">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                LIVE
+
+                {/* Dashboard content */}
+                <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {/* Left: Agent status */}
+                  <div className="md:col-span-1 space-y-3">
+                    <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-2">Active Agents</div>
+                    {[
+                      { name: "InboxZero Agent", status: "running", tasks: 47 },
+                      { name: "DevOps Ghost", status: "running", tasks: 12 },
+                      { name: "Sales Prospector", status: "idle", tasks: 0 },
+                    ].map((agent) => (
+                      <div key={agent.name} className="flex items-center justify-between p-3 rounded-lg bg-[#0A0A0B] border border-[#2A2A30]">
+                        <div className="flex items-center gap-2">
+                          <span className={`w-2 h-2 rounded-full ${agent.status === "running" ? "bg-green-400 animate-pulse" : "bg-[#6B6B7A]"}`} />
+                          <span className="text-xs text-[#E8E8F0]">{agent.name}</span>
+                        </div>
+                        {agent.tasks > 0 && (
+                          <span className="text-xs text-[#FF6B2B] font-mono">{agent.tasks} tasks</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Middle: Event log */}
+                  <div className="md:col-span-1 space-y-2">
+                    <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-2">Live Event Log</div>
+                    {[
+                      { time: "15:44:02", event: "Email triaged → Priority 3", type: "info" },
+                      { time: "15:44:01", event: "GitHub issue #847 created", type: "success" },
+                      { time: "15:43:58", event: "HITL gate: Confirm invoice?", type: "warn" },
+                      { time: "15:43:55", event: "Sentry error detected", type: "error" },
+                      { time: "15:43:50", event: "Skill: calendar.schedule()", type: "info" },
+                    ].map((log, i) => (
+                      <div key={i} className="flex items-start gap-2 text-xs font-mono">
+                        <span className="text-[#6B6B7A] shrink-0">{log.time}</span>
+                        <span className={
+                          log.type === "success" ? "text-green-400" :
+                          log.type === "warn" ? "text-yellow-400" :
+                          log.type === "error" ? "text-red-400" :
+                          "text-[#E8E8F0]"
+                        }>{log.event}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Right: Skills */}
+                  <div className="md:col-span-1 space-y-2">
+                    <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-2">Installed Skills</div>
+                    {[
+                      { name: "gmail.triage", version: "2.1.0", active: true },
+                      { name: "github.issues", version: "1.4.2", active: true },
+                      { name: "slack.notify", version: "3.0.1", active: true },
+                      { name: "calendar.schedule", version: "1.2.0", active: true },
+                      { name: "crm.update", version: "0.9.1", active: false },
+                    ].map((skill) => (
+                      <div key={skill.name} className="flex items-center justify-between p-2 rounded bg-[#0A0A0B] border border-[#2A2A30]">
+                        <span className="text-xs font-mono text-[#FF6B2B]">{skill.name}</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-[#6B6B7A]">v{skill.version}</span>
+                          <span className={`w-1.5 h-1.5 rounded-full ${skill.active ? "bg-green-400" : "bg-[#6B6B7A]"}`} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Dashboard content */}
-            <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Left: Agent status */}
-              <div className="md:col-span-1 space-y-3">
-                <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-2">Active Agents</div>
-                {[
-                  { name: "InboxZero Agent", status: "running", tasks: 47 },
-                  { name: "DevOps Ghost", status: "running", tasks: 12 },
-                  { name: "Sales Prospector", status: "idle", tasks: 0 },
-                ].map((agent) => (
-                  <div key={agent.name} className="flex items-center justify-between p-3 rounded-lg bg-[#0A0A0B] border border-[#2A2A30]">
-                    <div className="flex items-center gap-2">
-                      <span className={`w-2 h-2 rounded-full ${agent.status === "running" ? "bg-green-400 animate-pulse" : "bg-[#6B6B7A]"}`} />
-                      <span className="text-xs text-[#E8E8F0]">{agent.name}</span>
-                    </div>
-                    {agent.tasks > 0 && (
-                      <span className="text-xs text-[#FF6B2B] font-mono">{agent.tasks} tasks</span>
-                    )}
-                  </div>
-                ))}
+            {/* Right: Hero Image with floating animation and glow */}
+            <div className="relative">
+              {/* Gradient glow behind image */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B2B]/20 via-[#FF6B2B]/10 to-transparent rounded-3xl blur-3xl transform scale-110" />
+              
+              {/* Floating image container */}
+              <div className="relative animate-float">
+                <div className="relative rounded-2xl overflow-hidden border border-[#FF6B2B]/30 shadow-2xl shadow-[#FF6B2B]/20">
+                  <Image
+                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"
+                    alt="AI and Robotics Illustration"
+                    width={600}
+                    height={500}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
+                  
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B]/60 via-transparent to-transparent" />
+                </div>
               </div>
 
-              {/* Middle: Event log */}
-              <div className="md:col-span-1 space-y-2">
-                <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-2">Live Event Log</div>
-                {[
-                  { time: "15:44:02", event: "Email triaged → Priority 3", type: "info" },
-                  { time: "15:44:01", event: "GitHub issue #847 created", type: "success" },
-                  { time: "15:43:58", event: "HITL gate: Confirm invoice?", type: "warn" },
-                  { time: "15:43:55", event: "Sentry error detected", type: "error" },
-                  { time: "15:43:50", event: "Skill: calendar.schedule()", type: "info" },
-                ].map((log, i) => (
-                  <div key={i} className="flex items-start gap-2 text-xs font-mono">
-                    <span className="text-[#6B6B7A] shrink-0">{log.time}</span>
-                    <span className={
-                      log.type === "success" ? "text-green-400" :
-                      log.type === "warn" ? "text-yellow-400" :
-                      log.type === "error" ? "text-red-400" :
-                      "text-[#E8E8F0]"
-                    }>{log.event}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Right: Skills */}
-              <div className="md:col-span-1 space-y-2">
-                <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-2">Installed Skills</div>
-                {[
-                  { name: "gmail.triage", version: "2.1.0", active: true },
-                  { name: "github.issues", version: "1.4.2", active: true },
-                  { name: "slack.notify", version: "3.0.1", active: true },
-                  { name: "calendar.schedule", version: "1.2.0", active: true },
-                  { name: "crm.update", version: "0.9.1", active: false },
-                ].map((skill) => (
-                  <div key={skill.name} className="flex items-center justify-between p-2 rounded bg-[#0A0A0B] border border-[#2A2A30]">
-                    <span className="text-xs font-mono text-[#FF6B2B]">{skill.name}</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-[#6B6B7A]">v{skill.version}</span>
-                      <span className={`w-1.5 h-1.5 rounded-full ${skill.active ? "bg-green-400" : "bg-[#6B6B7A]"}`} />
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#FF6B2B]/10 rounded-full blur-2xl" />
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#FF6B2B]/5 rounded-full blur-3xl" />
             </div>
           </div>
         </div>

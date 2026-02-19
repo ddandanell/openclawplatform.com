@@ -23,7 +23,7 @@ export default function Footer() {
                 </svg>
               </div>
               <span className="font-bold text-lg text-white">
-                OpenClaw<span className="text-[#FF6B2B]">Agency</span>
+                OpenClaw<span className="text-[#FF6B2B]">AI Agency</span>
               </span>
             </div>
             <p className="text-sm text-[#6B6B7A] leading-relaxed mb-4">
@@ -34,7 +34,8 @@ export default function Footer() {
               {[
                 {
                   label: "Twitter",
-                  href: "#",
+                  href: "https://twitter.com/openclawagency",
+                  ariaLabel: "Follow us on Twitter",
                   icon: (
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -43,7 +44,8 @@ export default function Footer() {
                 },
                 {
                   label: "LinkedIn",
-                  href: "#",
+                  href: "https://linkedin.com/company/openclawagency",
+                  ariaLabel: "Connect with us on LinkedIn",
                   icon: (
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -55,7 +57,9 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   className="w-8 h-8 rounded-lg border border-[#2A2A30] flex items-center justify-center text-[#6B6B7A] hover:text-[#FF6B2B] hover:border-[#FF6B2B]/50 transition-all"
-                  aria-label={social.label}
+                  aria-label={social.ariaLabel}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {social.icon}
                 </a>
@@ -150,14 +154,23 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-[#2A2A30] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[#6B6B7A]">
-            © 2026 OpenClaw Agency. All rights reserved.
+            © 2026 OpenClaw AI Agency. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            {["Privacy Policy", "Terms of Service", "Security"].map((item) => (
-              <a key={item} href="#" className="text-sm text-[#6B6B7A] hover:text-[#FF6B2B] transition-colors">
-                {item}
-              </a>
-            ))}
+            {[
+                { name: "Privacy Policy", href: "/privacy", ariaLabel: "Read our Privacy Policy" },
+                { name: "Terms of Service", href: "/terms", ariaLabel: "Read our Terms of Service" },
+                { name: "Security", href: "#security", ariaLabel: "Learn about our Security practices" },
+              ].map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm text-[#6B6B7A] hover:text-[#FF6B2B] transition-colors"
+                  aria-label={item.ariaLabel}
+                >
+                  {item.name}
+                </a>
+              ))}
           </div>
         </div>
       </div>

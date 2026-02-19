@@ -1,3 +1,5 @@
+import { FileText, PenTool, Rocket, HeadphonesIcon, ArrowRight, Server, Terminal, BookOpen, Wrench, Link2, CheckCircle2 } from "lucide-react";
+
 export default function ProcessSection() {
   return (
     <section className="py-24 relative overflow-hidden">
@@ -21,8 +23,12 @@ export default function ProcessSection() {
 
         {/* Process steps */}
         <div className="relative">
-          {/* Connecting line */}
+          {/* Connecting line with arrow */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#FF6B2B] via-[#FF6B2B]/50 to-transparent hidden md:block" />
+          <div className="absolute left-8 bottom-0 w-px h-8 bg-gradient-to-t from-[#FF6B2B]/50 to-transparent hidden md:block" />
+          <div className="absolute left-[30px] bottom-0 hidden md:flex items-center justify-center w-4 h-4 rounded-full bg-[#FF6B2B] z-10">
+            <ArrowRight className="w-2 h-2 text-white rotate-[-90deg]" />
+          </div>
 
           <div className="space-y-8">
             {[
@@ -34,6 +40,7 @@ export default function ProcessSection() {
                   "We start with a deep-dive call to understand your workflows, pain points, and automation goals. Simultaneously, we provision a dedicated Linux VPS with a non-root user, configure firewall rules, and set up monitoring.",
                 code: "$ ssh deploy@your-vps.com\n$ sudo useradd -m -s /bin/bash openclaw\n$ ufw allow 22,443/tcp",
                 deliverables: ["Dedicated VPS provisioned", "Security hardening complete", "Monitoring configured"],
+                icon: Server,
               },
               {
                 step: "02",
@@ -43,6 +50,7 @@ export default function ProcessSection() {
                   "We install OpenClaw as a system daemon—not a terminal process. This means your agent runs 24/7, survives reboots, and auto-restarts on failure. We configure Docker sandboxing and set workspace permissions.",
                 code: "$ openclaw onboard --install-daemon\n$ openclaw config set workspaceAccess ro\n$ systemctl enable openclaw",
                 deliverables: ["Daemon installed & running", "Docker sandbox configured", "Auto-restart enabled"],
+                icon: Terminal,
               },
               {
                 step: "03",
@@ -52,6 +60,7 @@ export default function ProcessSection() {
                   "This is where your expertise meets ours. We run a structured workshop to define your agent&apos;s SOUL.md—its personality, constraints, escalation paths, and decision-making logic. This document is the brain of your agent.",
                 code: "# SOUL.md\nYou are [Company]'s AI assistant.\nTone: Professional, concise.\nNEVER: Send emails without HITL approval.\nALWAYS: Log all financial actions.",
                 deliverables: ["SOUL.md defined", "Tone & persona set", "HITL gates configured"],
+                icon: BookOpen,
               },
               {
                 step: "04",
@@ -61,6 +70,7 @@ export default function ProcessSection() {
                   "We install standard Skills (Calendar, Drive, Gmail, Slack) and develop any custom Skills your business needs. ERP connectors, CRM integrations, proprietary API wrappers—we build them as proper SKILL.md files.",
                 code: "$ openclaw skills install gmail calendar drive\n$ openclaw skills install ./custom/crm-connector\n$ openclaw skills install ./custom/erp-bridge",
                 deliverables: ["Standard skills installed", "Custom skills developed", "Integration tests passing"],
+                icon: Wrench,
               },
               {
                 step: "05",
@@ -70,20 +80,21 @@ export default function ProcessSection() {
                   "We configure your communication channels using private DM pairing codes—never exposing the Control UI to the public internet. We set up Cloudflare Zero Trust or Tailscale for secure dashboard access, then hand over the keys.",
                 code: "$ openclaw pair --channel slack --private\n$ openclaw pair --channel whatsapp --private\n# Dashboard: https://your-agent.company.com",
                 deliverables: ["Channels paired securely", "Dashboard protected by ZT", "Team access configured"],
+                icon: Link2,
               },
             ].map((item, i) => (
-              <div key={item.step} className="relative flex gap-8">
+              <div key={item.step} className="relative flex gap-8 group">
                 {/* Step indicator */}
                 <div className="relative shrink-0 hidden md:flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-2xl bg-[#FF6B2B] flex items-center justify-center text-white font-black text-lg z-10">
-                    {item.step}
+                  <div className="w-16 h-16 rounded-2xl bg-[#FF6B2B] flex items-center justify-center text-white font-black text-lg z-10 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#FF6B2B]/30">
+                    <item.icon className="w-7 h-7" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 pb-8">
+                <div className="flex-1 pb-8 group-hover:translate-x-2 transition-transform duration-300">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div className="p-6 rounded-2xl border border-[#2A2A30] bg-[#16161A]">
+                    <div className="p-6 rounded-2xl border border-[#2A2A30] bg-[#16161A] group-hover:border-[#FF6B2B]/30 group-hover:shadow-lg group-hover:shadow-[#FF6B2B]/10 transition-all duration-300">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="md:hidden w-10 h-10 rounded-xl bg-[#FF6B2B] flex items-center justify-center text-white font-black text-sm">
                           {item.step}
@@ -97,9 +108,7 @@ export default function ProcessSection() {
                       <div className="space-y-2">
                         {item.deliverables.map((d) => (
                           <div key={d} className="flex items-center gap-2 text-sm text-[#E8E8F0]">
-                            <svg className="w-4 h-4 text-[#FF6B2B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
+                            <CheckCircle2 className="w-4 h-4 text-[#FF6B2B] shrink-0" />
                             {d}
                           </div>
                         ))}

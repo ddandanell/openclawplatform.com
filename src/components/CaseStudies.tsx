@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function CaseStudies() {
   return (
     <section id="case-studies" className="py-24 relative">
@@ -70,27 +72,24 @@ export default function CaseStudies() {
                 </div>
               </div>
 
-              {/* Terminal preview */}
-              <div className="bg-[#0A0A0B] p-6 lg:p-8 border-t lg:border-t-0 lg:border-l border-[#2A2A30]">
-                <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-4">Live Agent Log</div>
-                <div className="space-y-2 font-mono text-xs">
-                  {[
-                    { time: "09:14:02", msg: "📧 New email: 'Q3 Board Update Request'", color: "text-[#E8E8F0]" },
-                    { time: "09:14:02", msg: "→ Classifying: Priority 1 (Board)", color: "text-[#FF6B2B]" },
-                    { time: "09:14:03", msg: "→ HITL gate: Notifying CEO via Slack", color: "text-yellow-400" },
-                    { time: "09:14:05", msg: "📧 New email: 'Your weekly digest'", color: "text-[#E8E8F0]" },
-                    { time: "09:14:05", msg: "→ Classifying: Priority 5 (Newsletter)", color: "text-[#6B6B7A]" },
-                    { time: "09:14:06", msg: "→ Auto-archiving + unsubscribing", color: "text-green-400" },
-                    { time: "09:14:08", msg: "📧 New email: 'Invoice #4821 overdue'", color: "text-[#E8E8F0]" },
-                    { time: "09:14:08", msg: "→ Classifying: Priority 2 (Finance)", color: "text-[#FF6B2B]" },
-                    { time: "09:14:09", msg: "→ Drafting response + tagging CFO", color: "text-blue-400" },
-                    { time: "09:14:11", msg: "✅ Batch complete: 12 emails processed", color: "text-green-400" },
-                  ].map((log, i) => (
-                    <div key={i} className="flex gap-3">
-                      <span className="text-[#6B6B7A] shrink-0">{log.time}</span>
-                      <span className={log.color}>{log.msg}</span>
+              {/* Image preview */}
+              <div className="bg-[#0A0A0B] p-6 lg:p-8 border-t lg:border-t-0 lg:border-l border-[#2A2A30] relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B2B]/5 to-transparent" />
+                <div className="relative">
+                  <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-4">Result Preview</div>
+                  <div className="relative rounded-xl overflow-hidden border border-[#2A2A30] shadow-xl">
+                    <Image
+                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
+                      alt="Email analytics dashboard showing processed emails"
+                      width={500}
+                      height={300}
+                      className="w-full h-auto object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B]/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="text-xs text-[#FF6B2B] font-bold">200+ Emails Processed Daily</div>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -99,27 +98,24 @@ export default function CaseStudies() {
           {/* Case Study 2: DevOps Ghost */}
           <div className="rounded-2xl border border-[#2A2A30] bg-[#16161A] overflow-hidden hover:border-[#FF6B2B]/30 transition-all">
             <div className="grid grid-cols-1 lg:grid-cols-2">
-              {/* Terminal preview */}
-              <div className="bg-[#0A0A0B] p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-[#2A2A30] order-2 lg:order-1">
-                <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-4">DevOps Ghost — Sentry Monitor</div>
-                <div className="space-y-2 font-mono text-xs">
-                  {[
-                    { time: "03:22:14", msg: "🔴 Sentry: New error detected", color: "text-red-400" },
-                    { time: "03:22:14", msg: "→ TypeError: Cannot read 'user.id'", color: "text-red-300" },
-                    { time: "03:22:15", msg: "→ Affected: /api/checkout (47 events)", color: "text-yellow-400" },
-                    { time: "03:22:16", msg: "→ Searching codebase for root cause...", color: "text-[#6B6B7A]" },
-                    { time: "03:22:18", msg: "→ Found: src/api/checkout.ts:L142", color: "text-[#FF6B2B]" },
-                    { time: "03:22:19", msg: "→ Creating GitHub issue #1204...", color: "text-blue-400" },
-                    { time: "03:22:21", msg: "✅ Issue created: 'Fix null user check'", color: "text-green-400" },
-                    { time: "03:22:22", msg: "→ Drafting PR with suggested fix...", color: "text-blue-400" },
-                    { time: "03:22:28", msg: "✅ PR #891 opened for review", color: "text-green-400" },
-                    { time: "03:22:29", msg: "→ Notifying on-call engineer via Slack", color: "text-[#FF6B2B]" },
-                  ].map((log, i) => (
-                    <div key={i} className="flex gap-3">
-                      <span className="text-[#6B6B7A] shrink-0">{log.time}</span>
-                      <span className={log.color}>{log.msg}</span>
+              {/* Image preview */}
+              <div className="bg-[#0A0A0B] p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-[#2A2A30] order-2 lg:order-1 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-bl from-[#FF6B2B]/5 to-transparent" />
+                <div className="relative">
+                  <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-4">Sentry Integration</div>
+                  <div className="relative rounded-xl overflow-hidden border border-[#2A2A30] shadow-xl">
+                    <Image
+                      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
+                      alt="Analytics dashboard showing error tracking and monitoring"
+                      width={500}
+                      height={300}
+                      className="w-full h-auto object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B]/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="text-xs text-[#FF6B2B] font-bold">&lt; 8min Bug-to-PR Time</div>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
 
@@ -226,9 +222,21 @@ export default function CaseStudies() {
               </div>
 
               {/* Visual */}
-              <div className="bg-[#0A0A0B] p-6 lg:p-8 border-t lg:border-t-0 lg:border-l border-[#2A2A30]">
-                <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-4">Prospector Workflow</div>
-                <div className="space-y-3">
+              <div className="bg-[#0A0A0B] p-6 lg:p-8 border-t lg:border-t-0 lg:border-l border-[#2A2A30] relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B2B]/5 to-transparent" />
+                <div className="relative">
+                  <div className="text-xs text-[#6B6B7A] uppercase tracking-wider mb-4">Prospector Result</div>
+                  <div className="relative rounded-xl overflow-hidden border border-[#2A2A30] shadow-xl mb-4">
+                    <Image
+                      src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80"
+                      alt="Technology and automation workflow illustration"
+                      width={500}
+                      height={200}
+                      className="w-full h-auto object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B]/80 via-transparent to-transparent" />
+                  </div>
+                  <div className="space-y-3">
                   {[
                     { step: "1", action: "Pull ICP from CRM", detail: "Filters by company size, industry, role", icon: "📋" },
                     { step: "2", action: "Research prospect", detail: "LinkedIn posts, company news, funding", icon: "🔍" },
@@ -246,12 +254,14 @@ export default function CaseStudies() {
                       </div>
                     </div>
                   ))}
-                </div>
+
+                </div> {/* Close .relative */}
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div> {/* Close .max-w-7xl container */}
     </section>
   );
 }

@@ -1,3 +1,5 @@
+import { MessageSquare, Shield, Brain, Container, CheckCircle, Lock, ShieldCheck, FileText, Layers, Cpu, Link2, BookOpen } from "lucide-react";
+
 export default function ArchitectureDiagram() {
   return (
     <section id="architecture" className="py-24 relative overflow-hidden">
@@ -27,35 +29,35 @@ export default function ArchitectureDiagram() {
           <div className="hidden lg:flex items-center justify-between gap-4">
             {[
               {
-                icon: "💬",
+                icon: MessageSquare,
                 label: "User",
                 sub: "WhatsApp / Slack / Teams",
                 color: "border-blue-500/40 bg-blue-500/10",
                 textColor: "text-blue-400",
               },
               {
-                icon: "🔐",
+                icon: Lock,
                 label: "Encrypted Gateway",
                 sub: "OpenClaw + Tailscale VPN",
                 color: "border-[#FF6B2B]/40 bg-[#FF6B2B]/10",
                 textColor: "text-[#FF6B2B]",
               },
               {
-                icon: "🧠",
+                icon: Brain,
                 label: "Reasoning Engine",
                 sub: "Claude 3.5/4.0 → Gemini Fallback",
                 color: "border-purple-500/40 bg-purple-500/10",
                 textColor: "text-purple-400",
               },
               {
-                icon: "🐳",
+                icon: Container,
                 label: "Secure Sandbox",
                 sub: "Docker Container (non-main)",
                 color: "border-green-500/40 bg-green-500/10",
                 textColor: "text-green-400",
               },
               {
-                icon: "✅",
+                icon: CheckCircle,
                 label: "Result",
                 sub: "Action Executed + Logged",
                 color: "border-[#FF6B2B]/40 bg-[#FF6B2B]/10",
@@ -63,8 +65,10 @@ export default function ArchitectureDiagram() {
               },
             ].map((step, i, arr) => (
               <div key={step.label} className="flex items-center gap-4 flex-1">
-                <div className={`flex-1 p-4 rounded-xl border ${step.color} text-center`}>
-                  <div className="text-3xl mb-2">{step.icon}</div>
+                <div className={`flex-1 p-4 rounded-xl border ${step.color} text-center group hover:shadow-lg hover:shadow-[#FF6B2B]/20 transition-all duration-300 hover:-translate-y-1`}>
+                  <div className="flex justify-center mb-2">
+                    <step.icon className={`w-8 h-8 ${step.textColor} group-hover:scale-110 transition-transform duration-300`} />
+                  </div>
                   <div className={`text-sm font-bold ${step.textColor} mb-1`}>{step.label}</div>
                   <div className="text-xs text-[#6B6B7A]">{step.sub}</div>
                 </div>
@@ -83,15 +87,15 @@ export default function ArchitectureDiagram() {
           {/* Mobile flow */}
           <div className="lg:hidden space-y-4">
             {[
-              { icon: "💬", label: "User Message", sub: "WhatsApp / Slack / Teams", color: "border-blue-500/40 bg-blue-500/10", textColor: "text-blue-400" },
-              { icon: "🔐", label: "Encrypted Gateway", sub: "OpenClaw + Tailscale VPN", color: "border-[#FF6B2B]/40 bg-[#FF6B2B]/10", textColor: "text-[#FF6B2B]" },
-              { icon: "🧠", label: "Reasoning Engine", sub: "Claude 3.5/4.0 → Gemini Fallback", color: "border-purple-500/40 bg-purple-500/10", textColor: "text-purple-400" },
-              { icon: "🐳", label: "Secure Sandbox", sub: "Docker Container (non-main)", color: "border-green-500/40 bg-green-500/10", textColor: "text-green-400" },
-              { icon: "✅", label: "Result Delivered", sub: "Action Executed + Logged", color: "border-[#FF6B2B]/40 bg-[#FF6B2B]/10", textColor: "text-[#FF6B2B]" },
+              { icon: MessageSquare, label: "User Message", sub: "WhatsApp / Slack / Teams", color: "border-blue-500/40 bg-blue-500/10", textColor: "text-blue-400" },
+              { icon: Lock, label: "Encrypted Gateway", sub: "OpenClaw + Tailscale VPN", color: "border-[#FF6B2B]/40 bg-[#FF6B2B]/10", textColor: "text-[#FF6B2B]" },
+              { icon: Brain, label: "Reasoning Engine", sub: "Claude 3.5/4.0 → Gemini Fallback", color: "border-purple-500/40 bg-purple-500/10", textColor: "text-purple-400" },
+              { icon: Container, label: "Secure Sandbox", sub: "Docker Container (non-main)", color: "border-green-500/40 bg-green-500/10", textColor: "text-green-400" },
+              { icon: CheckCircle, label: "Result Delivered", sub: "Action Executed + Logged", color: "border-[#FF6B2B]/40 bg-[#FF6B2B]/10", textColor: "text-[#FF6B2B]" },
             ].map((step, i, arr) => (
               <div key={step.label}>
-                <div className={`p-4 rounded-xl border ${step.color} flex items-center gap-4`}>
-                  <div className="text-2xl">{step.icon}</div>
+                <div className={`p-4 rounded-xl border ${step.color} flex items-center gap-4 group hover:shadow-lg hover:shadow-[#FF6B2B]/20 transition-all duration-300`}>
+                  <step.icon className={`w-8 h-8 ${step.textColor} shrink-0 group-hover:scale-110 transition-transform duration-300`} />
                   <div>
                     <div className={`text-sm font-bold ${step.textColor}`}>{step.label}</div>
                     <div className="text-xs text-[#6B6B7A]">{step.sub}</div>
@@ -130,33 +134,43 @@ export default function ArchitectureDiagram() {
                     layer: "Orchestration",
                     component: "OpenClaw Gateway",
                     impl: "Deployed via Docker on a dedicated VPS (AWS t3.medium or DigitalOcean Droplet) rather than a personal machine.",
+                    icon: Layers,
                   },
                   {
                     layer: "Security",
                     component: "Sandboxing",
                     impl: "All tool executions forced into a non-main Docker container. workspaceAccess: \"ro\" (read-only) for sensitive directories.",
+                    icon: ShieldCheck,
                   },
                   {
                     layer: "Identity",
                     component: "Channel Pairing",
                     impl: "Private DM pairing codes for Slack/Teams. Control UI (:18789) never exposed to public web without Tailscale/VPN tunnel.",
+                    icon: Link2,
                   },
                   {
                     layer: "Logic",
                     component: "Custom Skills",
                     impl: "Business logic structured in SKILL.md files. Human-in-the-loop (HITL) gates for high-risk actions (e.g., \"Confirm before sending invoice\").",
+                    icon: BookOpen,
                   },
                   {
                     layer: "Models",
                     component: "Fallback Chain",
                     impl: "Primary: Claude 3.5/4.0 (for reasoning); Fallback: Gemini 2.0 Flash (for speed/rate-limit handling).",
+                    icon: Cpu,
                   },
                 ].map((row, i) => (
-                  <tr key={row.layer} className={`border-b border-[#2A2A30] hover:bg-[#0A0A0B]/50 transition-colors ${i % 2 === 0 ? "" : "bg-[#0A0A0B]/20"}`}>
+                  <tr key={row.layer} className={`border-b border-[#2A2A30] hover:bg-[#0A0A0B]/50 transition-all ${i % 2 === 0 ? "" : "bg-[#0A0A0B]/20"}`}>
                     <td className="p-4">
-                      <span className="px-2 py-1 rounded-md bg-[#FF6B2B]/20 text-[#FF6B2B] text-xs font-bold">
-                        {row.layer}
-                      </span>
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-[#FF6B2B]/20">
+                          <row.icon className="w-4 h-4 text-[#FF6B2B]" />
+                        </div>
+                        <span className="px-2 py-1 rounded-md bg-[#FF6B2B]/20 text-[#FF6B2B] text-xs font-bold">
+                          {row.layer}
+                        </span>
+                      </div>
                     </td>
                     <td className="p-4 text-sm font-mono text-[#E8E8F0]">{row.component}</td>
                     <td className="p-4 text-sm text-[#6B6B7A]">{row.impl}</td>
@@ -171,23 +185,25 @@ export default function ArchitectureDiagram() {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              icon: "🔒",
+              icon: Lock,
               title: "Zero Data Exfiltration",
               desc: "Your business data never leaves your VPS. All AI reasoning happens with local context only.",
             },
             {
-              icon: "🧱",
+              icon: ShieldCheck,
               title: "Prompt Injection Resistant",
               desc: "Sandboxed execution means even a successful prompt injection can't access your real filesystem.",
             },
             {
-              icon: "📋",
+              icon: FileText,
               title: "Full Audit Trail",
               desc: "Every action, every decision, every tool call is logged with timestamps and reasoning chains.",
             },
           ].map((item) => (
-            <div key={item.title} className="p-6 rounded-xl border border-[#2A2A30] bg-[#16161A] flex gap-4">
-              <div className="text-2xl shrink-0">{item.icon}</div>
+            <div key={item.title} className="p-6 rounded-xl border border-[#2A2A30] bg-[#16161A] flex gap-4 group hover:border-[#FF6B2B]/30 hover:shadow-lg hover:shadow-[#FF6B2B]/10 transition-all duration-300">
+              <div className="p-3 rounded-xl bg-[#FF6B2B]/10 group-hover:bg-[#FF6B2B]/20 transition-colors">
+                <item.icon className="w-6 h-6 text-[#FF6B2B] group-hover:scale-110 transition-transform duration-300" />
+              </div>
               <div>
                 <div className="text-sm font-bold text-white mb-1">{item.title}</div>
                 <div className="text-xs text-[#6B6B7A] leading-relaxed">{item.desc}</div>
