@@ -172,13 +172,20 @@ body {
   animation: slide-up-fade 0.5s ease-out forwards;
 }
 
-/* Subtle video zoom-out for smoother background motion */
-.hero-video-scale {
-  transform: scale(0.92);
-  transform-origin: center;
-  will-change: transform;
-  transition: transform 300ms ease;
+/* Hero video background — full cover with premium slow-zoom-in animation */
+@keyframes hero-zoom {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1.0); }
 }
 
-/* Hero scale and overlay utilities */
-/* removed hero-scale and hero-overlay utilities per user request */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform-origin: center;
+  will-change: transform, opacity;
+  animation: hero-zoom 8s ease-out forwards;
+}

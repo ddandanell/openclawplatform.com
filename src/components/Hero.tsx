@@ -1,39 +1,77 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    video.currentTime = 0;
-    // Restore normal playback speed and ensure looping
-    video.playbackRate = 1;
-    video.loop = true;
+
+    // Ensure all required attributes are set programmatically as well
     video.muted = true;
-    video.autoplay = true;
+    video.loop = true;
     video.playsInline = true;
-    video.play().catch(() => {});
+    video.playbackRate = 1;
+
+    const reveal = () => {
+      video.play().catch(() => {});
+      setVideoLoaded(true);
+    };
+
+    // If already has enough data, reveal immediately
+    if (video.readyState >= 2) {
+      reveal();
+      return;
+    }
+
+    // Listen for the earliest possible "has first frame" event
+    video.addEventListener("loadeddata", reveal, { once: true });
+    // Also listen for canplaythrough as a secondary trigger
+    video.addEventListener("canplaythrough", reveal, { once: true });
+
+    // Fallback: always show the video after 3s regardless of events
+    const fallbackTimer = setTimeout(reveal, 3000);
+
+    return () => {
+      video.removeEventListener("loadeddata", reveal);
+      video.removeEventListener("canplaythrough", reveal);
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   return (
 
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background video — full width so it shows behind all hero content */}
-      {/* Background video — full width so it shows behind all hero content */}
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+      style={{ backgroundColor: "#0A0A0B" }}
+    >
+      {/* Background video — full cover, positioned absolutely behind all content */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <video
           ref={videoRef}
           autoPlay
+          loop
           muted
           playsInline
-          className="w-full h-full object-cover hero-video-scale"
+          preload="auto"
+          className="hero-video-bg"
+          style={{
+            opacity: videoLoaded ? 1 : 0,
+            transition: "opacity 1s ease-in-out",
+          }}
           aria-hidden="true"
           src="/herovideo.mp4"
         />
-        {/* Dark layer above video only (~75% opacity) so video reads like background — sits below text */}
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: 'rgba(0,0,0,0.75)' }} />
+        {/* Premium gradient overlay: dark at top/bottom, semi-transparent in middle so video shows through */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(10,10,11,0.55) 0%, rgba(10,10,11,0.35) 40%, rgba(10,10,11,0.55) 75%, rgba(10,10,11,0.85) 100%)",
+          }}
+        />
       </div>
 
       {/* Overlays removed so video is fully visible behind text */}
@@ -58,10 +96,10 @@ export default function Hero() {
         </h1>
 
         {/* Sub-headline — updated with new company description */}
-        <p className="text-xl sm:text-2xl text-[#9B9BAA] max-w-3xl mx-auto mb-4 leading-relaxed">
+        <p className="text-xl sm:text-2xl text-[#D0D0DC] max-w-3xl mx-auto mb-4 leading-relaxed">
           The AI landscape moves faster than most companies can adapt. That's exactly why we exist — to build <strong className="text-[#E8E8F0]">secure, intelligent AI solutions</strong> wrapped in strict guardrails and bulletproof security protocols that never step outside your boundaries.
         </p>
-        <p className="text-base sm:text-lg text-[#6B6B7A] max-w-2xl mx-auto mb-6 leading-relaxed">
+        <p className="text-base sm:text-lg text-[#B0B0C0] max-w-2xl mx-auto mb-6 leading-relaxed">
           One permanent agent stays embedded in your operations — continuously learning, refining responses, and evolving alongside your business over time.
         </p>
 
