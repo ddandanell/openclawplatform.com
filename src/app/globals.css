@@ -1,1 +1,116 @@
 @import "tailwindcss";
+
+@theme {
+  --color-claw-orange: #FF6B2B;
+  --color-claw-orange-light: #FF8C55;
+  --color-claw-orange-dark: #E5521A;
+  --color-claw-black: #0A0A0B;
+  --color-claw-dark: #111113;
+  --color-claw-card: #16161A;
+  --color-claw-border: #2A2A30;
+  --color-claw-muted: #6B6B7A;
+  --color-claw-text: #E8E8F0;
+  --color-claw-white: #F5F5FA;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0A0A0B;
+  color: #E8E8F0;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #FF6B2B 0%, #FF8C55 50%, #FFB347 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-orange {
+  box-shadow: 0 0 40px rgba(255, 107, 43, 0.3), 0 0 80px rgba(255, 107, 43, 0.1);
+}
+
+.glow-orange-sm {
+  box-shadow: 0 0 20px rgba(255, 107, 43, 0.2);
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 107, 43, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 107, 43, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(#16161A, #16161A) padding-box,
+              linear-gradient(135deg, #FF6B2B, #2A2A30, #FF6B2B) border-box;
+  border: 1px solid transparent;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0B;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF6B2B;
+  border-radius: 3px;
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 43, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(255, 107, 43, 0.5); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flow {
+  0% { stroke-dashoffset: 200; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out forwards;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.6s ease-out forwards;
+}
+
+.flow-path {
+  stroke-dasharray: 200;
+  animation: flow 2s linear infinite;
+}
