@@ -1,89 +1,89 @@
 import { Search, Layout, Wrench, Rocket, HeartHandshake, CheckCircle2, ArrowRight } from "lucide-react";
 
 const steps = [
+    {
+      step: "01",
+      title: "Deep Business Discovery",
+      duration: "Week 1",
+      icon: Search,
+      description:
+        "We start by understanding your goals, workflows, and where AI can deliver the biggest impact.",
+      deliverables: [
+        "Clear business goals defined",
+        "Workflow bottlenecks identified",
+        "AI opportunity assessment complete",
+        "Strategic roadmap delivered",
+        "ROI projections finalized",
+      ],
+    },
+    {
+      step: "02",
+      title: "System Architecture & Design",
+      duration: "Week 1–2",
+      icon: Layout,
+      description:
+        "We design your complete AI ecosystem—every channel, integration, and workflow.",
+      deliverables: [
+        "Omnichannel strategy defined",
+        "Integration architecture mapped",
+        "Chat, phone & email systems designed",
+        "CRM connectivity planned",
+        "Security protocols established",
+      ],
+    },
   {
-    step: "01",
-    title: "Need Assessment & Discovery",
-    duration: "Week 1",
-    icon: Search,
-    description:
-      "We dive deep into your business to understand exactly where AI employees will deliver the highest ROI.",
-    deliverables: [
-      "Business goal mapping complete",
-      "Workflow analysis documented",
-      "Opportunity matrix created",
-      "Strategic AI roadmap delivered",
-      "ROI projections finalized",
-    ],
-  },
-  {
-    step: "02",
-    title: "System Definition & Architecture",
-    duration: "Week 1–2",
-    icon: Layout,
-    description:
-      "We architect your complete AI employee ecosystem — every channel, every integration, every workflow.",
-    deliverables: [
-      "Omnichannel strategy defined",
-      "Integration architecture mapped",
-      "Chat, phone & email systems designed",
-      "CRM connectivity planned",
-      "Security protocols established",
-    ],
-  },
-  {
-    step: "03",
-    title: "Custom Build & Configuration",
-    duration: "Week 2–3",
-    icon: Wrench,
-    description:
-      "Our engineers build your custom AI employees with precision — every tool, skill, and integration tailored to your needs.",
-    deliverables: [
-      "Agent hub configured",
-      "Custom tools & skills developed",
-      "Database architecture created",
-      "Permission structures set",
-      "All integrations connected & tested",
-    ],
-  },
-  {
-    step: "04",
-    title: "Testing & Launch",
-    duration: "Week 3–4",
-    icon: Rocket,
-    description:
-      "Rigorous testing ensures your AI employees perform flawlessly before going live.",
-    deliverables: [
-      "End-to-end testing complete",
-      "Performance benchmarks met",
-      "Security audit passed",
-      "Team training delivered",
-      "Production launch executed",
-    ],
-  },
-  {
-    step: "05",
-    title: "Ongoing Operations & Support",
-    duration: "Ongoing",
-    icon: HeartHandshake,
-    description:
-      "Your AI employees are live — and we're right beside you, optimizing and expanding.",
-    deliverables: [
-      "24/7 monitoring active",
-      "Continuous improvement cycles",
-      "Dedicated account manager assigned",
-      "Monthly performance reports",
-      "New automation expansions",
-    ],
-  },
+      step: "03",
+      title: "Custom Build & Configuration",
+      duration: "Week 2–3",
+      icon: Wrench,
+      description:
+        "Our engineers build your AI agents with the exact tools, skills, and integrations your business needs.",
+      deliverables: [
+        "Agent hub configured",
+        "Custom tools & skills developed",
+        "Database architecture created",
+        "Permission structures set",
+        "All integrations connected & tested",
+      ],
+    },
+    {
+      step: "04",
+      title: "Testing & Launch",
+      duration: "Week 3–4",
+      icon: Rocket,
+      description:
+        "We thoroughly test everything before launch to ensure your AI workforce performs flawlessly.",
+      deliverables: [
+        "End-to-end testing complete",
+        "Performance benchmarks met",
+        "Security audit passed",
+        "Team training delivered",
+        "Production launch executed",
+      ],
+    },
+    {
+      step: "05",
+      title: "Ongoing Operations & Support",
+      duration: "Ongoing",
+      icon: HeartHandshake,
+      description:
+        "Your AI workforce is live—and we're right beside you, monitoring, optimizing, and expanding.",
+      deliverables: [
+        "24/7 monitoring active",
+        "Continuous improvement cycles",
+        "Dedicated account manager assigned",
+        "Monthly performance reports",
+        "New automation expansions",
+      ],
+    },
 ];
 
 const timeline = [
-  { label: "Discovery & Assessment", period: "Week 1" },
-  { label: "Architecture & Design", period: "Week 2" },
-  { label: "Build & Configure", period: "Week 3" },
-  { label: "Test & Launch", period: "Week 4" },
-  { label: "Optimize & Scale", period: "Ongoing" },
+  { label: "Deep Business Discovery", period: "Week 1" },
+  { label: "System Architecture & Design", period: "Week 2" },
+  { label: "Custom Build & Configuration", period: "Week 3" },
+  { label: "Testing & Launch", period: "Week 4" },
+  { label: "Ongoing Operations", period: "Ongoing" },
 ];
 
 export default function ProcessSection() {
@@ -100,9 +100,9 @@ export default function ProcessSection() {
             From Discovery to{" "}
             <span className="gradient-text">Full Production in 5 Steps</span>
           </h2>
-          <p className="text-xl text-[#6B6B7A] max-w-3xl mx-auto">
-            Our proven 5-phase methodology has been refined across 150+ implementations. Here's exactly how we transform your business with AI employees.
-          </p>
+           <p className="text-xl text-[#6B6B7A] max-w-3xl mx-auto">
+             We've refined this process across 150+ implementations. Here's how we turn your vision into a working AI workforce.
+           </p>
         </div>
 
         {/* Process steps */}

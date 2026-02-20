@@ -5,35 +5,35 @@ export default function ProblemSection() {
       title: "Systems Reliability",
       search: '"Your automation breaks at 2 AM and nobody knows until customers complain."',
       solution:
-        "SLA-backed 99.9% uptime guarantee with redundant infrastructure, automated failover, and 24/7 monitoring.",
+        "We guarantee 99.9% uptime with redundant infrastructure, automated failover, and 24/7 monitoring—so you never lose sleep over downtime.",
     },
     {
       emoji: "🏗️",
       title: "Setup Difficulties",
       search: '"AI implementation feels overwhelming — where do you even start?"',
       solution:
-        "Simplified white-glove onboarding. We handle everything from assessment to deployment. You just approve.",
+        "We handle the entire process from discovery to deployment. You just review progress and give feedback—no technical expertise needed.",
     },
     {
       emoji: "📚",
       title: "Training Challenges",
       search: '"Your team doesn\'t understand AI and resists adopting new tools."',
       solution:
-        "Comprehensive learning programs: video tutorials, live documentation, hands-on sessions. Your team becomes AI-confident.",
+        "We provide video tutorials, live sessions, and clear documentation that make your team confident and ready to use AI.",
     },
     {
       emoji: "🔌",
       title: "Integration Problems",
       search: '"Your tools don\'t talk to each other. Data lives in silos."',
       solution:
-        "Seamless connectivity with pre-built connectors for 50+ platforms. WhatsApp, CRM, email, payments — all unified.",
+        "We connect your AI workforce to 50+ platforms—WhatsApp, CRM, email, payments—so everything works together seamlessly.",
     },
     {
       emoji: "🛡️",
       title: "Security Concerns",
       search: '"You\'re worried about data breaches, compliance violations, and AI going rogue."',
       solution:
-        "Enterprise-grade encryption, compliance certifications (GDPR, SOC 2), regular security audits, and Claw's proprietary security layer.",
+        "Your data stays protected with enterprise‑grade encryption, compliance certifications (GDPR, SOC 2), and our proprietary security layer.",
     },
   ];
 
@@ -117,11 +117,10 @@ export default function ProblemSection() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF6B2B]/5 rounded-full blur-3xl pointer-events-none" />
           <div className="relative">
             <h3 className="text-2xl font-black text-white mb-4">
-              Every Problem Has a Claw Solution.
+              We've Solved These Problems Before
             </h3>
             <p className="text-[#6B6B7A] max-w-2xl mx-auto mb-6">
-              We've solved these exact challenges for 150+ businesses across
-              20+ industries. Your business is next.
+              We've helped 150+ businesses across 20+ industries overcome these exact challenges.
             </p>
             <a
               href="https://wa.me/628113702343?text=I%20have%20questions%20about%20AI%20implementation%20for%20my%20business"

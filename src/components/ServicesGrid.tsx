@@ -20,10 +20,10 @@ export default function ServicesGrid() {
             🛠️ Complete AI Employee Solutions
           </div>
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
-            Two Paths to <span className="gradient-text">AI Transformation</span>
+            Two Ways to Get <span className="gradient-text">AI Working For You</span>
           </h2>
           <p className="text-xl text-[#6B6B7A] max-w-3xl mx-auto">
-            Choose the engagement model that fits your needs — or let us recommend the best approach after our initial consultation.
+            Pick the approach that matches your needs—or we'll recommend the best fit after a quick consultation.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function ServicesGrid() {
               <h3 className="text-xl font-black text-white">Hands-Off Implementation</h3>
             </div>
             <p className="text-[#6B6B7A] mb-4">
-              We handle everything — full implementation with only brief adjustment meetings needed on your calendar.
+              We build and deploy your AI workforce end-to-end. You get results without managing the technical details.
             </p>
             <ul className="space-y-2 text-sm text-[#E8E8F0]">
               <li className="flex items-center gap-2">
@@ -65,7 +65,7 @@ export default function ServicesGrid() {
               <h3 className="text-xl font-black text-white">Deep Partnership</h3>
             </div>
             <p className="text-[#6B6B7A] mb-4">
-              Exhaustive company blueprinting — we map your roles, processes, vision, and mission across a comprehensive document (100-200 pages).
+              We create a complete operational blueprint—mapping your processes, roles, and vision into a strategic AI roadmap.
             </p>
             <ul className="space-y-2 text-sm text-[#E8E8F0]">
               <li className="flex items-center gap-2">
@@ -89,8 +89,8 @@ export default function ServicesGrid() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF6B2B]/5 rounded-full blur-3xl pointer-events-none" />
           <div className="relative">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-black text-white mb-2">Enterprise Infrastructure</h3>
-              <p className="text-[#6B6B7A]">Built for performance, designed for security</p>
+            <h3 className="text-2xl font-black text-white mb-2">Infrastructure That Scales With You</h3>
+            <p className="text-[#6B6B7A]">Performance‑focused, security‑first architecture</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="flex items-center gap-3 p-4 rounded-xl bg-[#0A0A0B] border border-[#2A2A30]">
@@ -98,8 +98,8 @@ export default function ServicesGrid() {
                   <Server className="w-5 h-5 text-[#FF6B2B]" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#E8E8F0]">Dedicated Servers</div>
-                  <div className="text-xs text-[#6B6B7A]">High-performance computing</div>
+                   <div className="text-sm font-bold text-[#E8E8F0]">Dedicated Infrastructure</div>
+                   <div className="text-xs text-[#6B6B7A]">High‑performance computing</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-xl bg-[#0A0A0B] border border-[#2A2A30]">
@@ -142,13 +142,12 @@ export default function ServicesGrid() {
               <div className="w-12 h-12 rounded-xl bg-[#FF6B2B]/20 flex items-center justify-center mb-6 group-hover:bg-[#FF6B2B]/30 transition-colors">
                 <Search className="w-6 h-6 text-[#FF6B2B]" />
               </div>
-              <h3 className="text-2xl font-black text-white mb-3">
-                Comprehensive Need Assessment
-              </h3>
-              <p className="text-[#6B6B7A] mb-6 leading-relaxed">
-                We start by deeply understanding your business before building
-                anything.
-              </p>
+               <h3 className="text-2xl font-black text-white mb-3">
+                 Deep Business Discovery
+               </h3>
+               <p className="text-[#6B6B7A] mb-6 leading-relaxed">
+                 We start by understanding your goals, workflows, and bottlenecks—so we build exactly what you need.
+               </p>
               <div className="grid grid-cols-2 gap-3">
                 {[
                   "Goal Mapping & KPI Definition",
@@ -204,9 +203,9 @@ export default function ServicesGrid() {
             <h3 className="text-xl font-black text-white mb-3">
               Custom System Setup & Configuration
             </h3>
-            <p className="text-[#6B6B7A] text-sm leading-relaxed mb-4">
-              Precision-engineered AI systems built to your exact specifications.
-            </p>
+               <p className="text-[#6B6B7A] text-sm leading-relaxed mb-4">
+                 We build custom AI agents with the exact tools, skills, and integrations your business needs.
+               </p>
             <div className="space-y-2">
               {[
                 "Agent Hub Configuration",
@@ -265,9 +264,9 @@ export default function ServicesGrid() {
               <h3 className="text-2xl font-black text-white mb-3">
                 24/7 Production Operations
               </h3>
-              <p className="text-[#6B6B7A] mb-6 leading-relaxed">
-                Your AI employees never sleep. Neither does our monitoring.
-              </p>
+               <p className="text-[#6B6B7A] mb-6 leading-relaxed">
+                 Your AI workforce operates 24/7—and so does our monitoring, optimization, and support.
+               </p>
               <div className="grid grid-cols-2 gap-3">
                 {[
                   "24/7 Real-Time Monitoring",
@@ -297,9 +296,9 @@ export default function ServicesGrid() {
             <h3 className="text-xl font-black text-white mb-3">
               Full Support & Training
             </h3>
-            <p className="text-[#6B6B7A] text-sm leading-relaxed mb-4">
-              We don't just build — we empower your team to master AI.
-            </p>
+               <p className="text-[#6B6B7A] text-sm leading-relaxed mb-4">
+                 We provide training, documentation, and ongoing support so your team feels confident using AI.
+               </p>
             <div className="space-y-2">
               {[
                 "Dedicated Account Manager",

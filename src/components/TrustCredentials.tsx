@@ -60,13 +60,11 @@ export default function TrustCredentials() {
             🏆 Why Businesses Trust Claw
           </div>
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
-            Proven Track Record.{" "}
-            <span className="gradient-text">Unmatched Security.</span>
+            Proven Results.{" "}
+            <span className="gradient-text">Enterprise‑Grade Security.</span>
           </h2>
           <p className="text-xl text-[#6B6B7A] max-w-3xl mx-auto">
-            AI agency Claw protects your data with our proprietary security
-            layer while delivering measurable results across every
-            implementation.
+            We protect your data with our proprietary security layer and deliver measurable ROI across every implementation.
           </p>
         </div>
 
@@ -91,14 +89,9 @@ export default function TrustCredentials() {
                     </div>
                   </div>
 
-                  <p className="text-[#6B6B7A] leading-relaxed mb-8">
-                    Every AI employee we deploy is protected by Claw Shield™, our
-                    internally-developed security framework that encrypts data at
-                    rest and in transit, enforces strict access controls, and
-                    provides real-time threat monitoring. This isn't
-                    off-the-shelf security — it's purpose-built for AI
-                    operations.
-                  </p>
+                   <p className="text-[#6B6B7A] leading-relaxed mb-8">
+                     Every AI agent we deploy is protected by Claw Shield™—our proprietary security framework that encrypts data at rest and in transit, enforces strict access controls, and provides real-time threat monitoring. This isn't off-the-shelf security—it's purpose-built for AI operations.
+                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
                     {securityFeatures.map(({ icon: Icon, label }) => (
